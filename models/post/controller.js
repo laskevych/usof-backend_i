@@ -1,3 +1,4 @@
+const e = require("express");
 const Controller = require('./../controller');
 const PostModel = require('./model');
 const Where = require('./../sql/where');
@@ -26,6 +27,81 @@ class PostController extends Controller {
             ])
             .setUpdate(allowedFieldsForUser, [ { field: this._model._creationByRelationFieldName, operator: '=', value: ''} ])
             .setDelete(allowedFieldsForUser, [ { field: this._model._creationByRelationFieldName, operator: '=', value: ''} ])
+    }
+
+    /**
+     * @inheritDoc
+     */
+    _prepareSort(req) {
+        const allowedSort = ['likes', 'creationAt'];
+        let sortBy = 'id';
+        if (req.query && req.query.hasOwnProperty('sortBy')) {
+            const sortParts = req.query.sortBy.split('-');
+            if (!allowedSort.includes(sortParts[0])) {
+                return sortBy;
+            }
+
+            if (sortParts.length === 1) {
+                sortBy = `${sortParts[0].trim()} ASC`
+            } else if (
+                sortParts.length === 2
+                && ['ASC', 'DESC'].includes(sortParts[1].trim().toUpperCase())
+            ) {
+                sortBy = `${sortParts[0].trim()} ${sortParts[1].trim().toUpperCase()}`
+            }
+        }
+
+        return sortBy;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    _prepareFilters(req) {
+        const filter = [];
+        const allowedFilter = ['id', 'status', 'showOnHomepage', 'categories', 'creationAtStart', 'creationAtEnd'];
+        Object.keys(req.query).forEach(fieldName => {
+            if (allowedFilter.includes(fieldName) && !filter.hasOwnProperty(fieldName)) {
+                let field, operator;
+                field = fieldName;
+                let value = req.query[fieldName];
+                switch (fieldName) {
+                    case 'id':
+                        operator = 'IN';
+                        value = value.trim().split(',');
+                        break;
+                    case 'categories':
+                        operator = 'IN';
+                        value = value.trim().split(',');
+                        break;
+                    case 'creationAtStart':
+                        operator = '>=';
+                        field = 'creationAt';
+                        break;
+                    case 'creationAtEnd':
+                        operator = '<=';
+                        field = 'creationAt';
+                        break;
+                    default:
+                        operator = '=';
+                        break;
+                }
+
+                filter.push(new Where(field, operator, value));
+            }
+        });
+
+        return filter;
+    }
+
+    /**
+     * @param {e.Request} req
+     * @param {e.Response} res
+     * @param {e.NextFunction} next
+     * @return {Promise<e.Response>}
+     */
+    async getFavoritePosts(req, res, next) {
+        //TODO
     }
 }
 

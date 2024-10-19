@@ -9,7 +9,6 @@ const AccessOperation = require('./access/operation');
 class Controller {
     /**
      * @type {Model}
-     * @private
      */
     _model;
 
@@ -38,7 +37,6 @@ class Controller {
     /**
      * @param {e.Request} req
      * @return {[Where]}
-     * @private
      */
     _prepareFilters(req) {
         return [];
@@ -48,7 +46,6 @@ class Controller {
      *
      * @param {e.Request} req
      * @return {string}
-     * @private
      */
     _prepareSort(req) {
         return 'id';

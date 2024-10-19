@@ -39,9 +39,7 @@ class Model {
     }
 
     /**
-     *
      * @param {[Where|[Where]]} where
-     * @private
      */
     _getWhere(where) {
         let result = '';
