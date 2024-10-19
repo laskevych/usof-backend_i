@@ -1,7 +1,7 @@
 const { faker } = require('@faker-js/faker');
 const PostModel = require('./../models/post/model');
 const UserModel = require('./../models/user/model');
-// const Category = require('./../engine/category/module');
+const CategoryModel = require('./../models/category/model');
 // const Comment = require('./../engine/comment/module');
 // const PostCategory = require('./../engine/post/category/module');
 // const Like = require('./../engine/like/module');
@@ -9,14 +9,14 @@ const UserModel = require('./../models/user/model');
 (async () => {
     const NUMBER_OF_USERS = 15;
     const NUMBER_OF_POSTS = 50;
-    // const NUMBER_OF_CATEGORIES = 8;
+    const NUMBER_OF_CATEGORIES = 8;
     // const NUMBER_OF_POST_CATEGORIES = 200;
     // const NUMBER_OF_COMMENTS = 50;
     // const NUMBER_OF_LIKES = 10;
 
     let userIds = [];
     let postIds = [];
-    // let categoryIds = [];
+    let categoryIds = [];
     // let commentIds = [];
 
     for (let i = 0; i < NUMBER_OF_USERS; i++) {
@@ -49,18 +49,18 @@ const UserModel = require('./../models/user/model');
 
         postIds.push(entity.id);
     }
-    //
-    // for (let i = 0; i < NUMBER_OF_CATEGORIES; i++) {
-    //     const module = new Category();
-    //     const record = module.createRecordObject();
-    //     record.title = faker.lorem.word({ length: { min: 3, max: 8 }, strategy: 'shortest' });
-    //     record.description = faker.lorem.sentence();
-    //     record.createdAt = faker.date.between({ from: '2022-01-01T00:00:00.000Z', to: '2024-10-05T00:00:00.000Z' });
-    //     record.updatedAt = faker.date.between({ from: '2022-01-01T00:00:00.000Z', to: '2024-10-05T00:00:00.000Z' });
-    //     await record.save();
-    //
-    //     categoryIds.push(record.id);
-    // }
+
+
+    for (let i = 0; i < NUMBER_OF_CATEGORIES; i++) {
+        const model = new CategoryModel();
+        const entity = model.createEntity();
+        entity.title = faker.lorem.word({ length: { min: 4, max: 8 }, strategy: 'shortest' });
+        entity.description = faker.lorem.sentence();
+        entity.creationAt = faker.date.between({ from: '2024-01-01T00:00:00.000Z', to: '2024-10-15T00:00:00.000Z' });
+        await entity.save();
+
+        categoryIds.push(entity.id);
+    }
     //
     // for (let i = 0; i < NUMBER_OF_COMMENTS; i++) {
     //     const module = new Comment();
