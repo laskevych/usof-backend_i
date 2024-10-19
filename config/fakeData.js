@@ -2,15 +2,17 @@ const { faker } = require('@faker-js/faker');
 const PostModel = require('./../models/post/model');
 const UserModel = require('./../models/user/model');
 const CategoryModel = require('./../models/category/model');
+const PostCategoryModel = require('./../models/post/category/model');
+const PostFavoriteModel = require('./../models/post/favorite/model');
 // const Comment = require('./../engine/comment/module');
-// const PostCategory = require('./../engine/post/category/module');
 // const Like = require('./../engine/like/module');
 
 (async () => {
     const NUMBER_OF_USERS = 15;
     const NUMBER_OF_POSTS = 50;
     const NUMBER_OF_CATEGORIES = 8;
-    // const NUMBER_OF_POST_CATEGORIES = 200;
+    const NUMBER_OF_POST_CATEGORIES = 200;
+    const NUMBER_OF_POST_FAVORITES = NUMBER_OF_USERS * (NUMBER_OF_POSTS/10);
     // const NUMBER_OF_COMMENTS = 50;
     // const NUMBER_OF_LIKES = 10;
 
@@ -75,19 +77,32 @@ const CategoryModel = require('./../models/category/model');
     //     commentIds.push(record.id);
     // }
     //
-    // for (let i = 0; i < NUMBER_OF_POST_CATEGORIES; i++) {
-    //     const module = new PostCategory();
-    //     const record = module.createRecordObject();
-    //     record.categoryId = faker.helpers.arrayElement(categoryIds);
-    //     record.postId = faker.helpers.arrayElement(postIds);
-    //     record.createdAt = faker.date.between({ from: '2022-01-01T00:00:00.000Z', to: '2024-10-05T00:00:00.000Z' });
-    //     record.updatedAt = faker.date.between({ from: '2022-01-01T00:00:00.000Z', to: '2024-10-05T00:00:00.000Z' });
-    //     try {
-    //         await record.save();
-    //     } catch (e) {
-    //         console.error(e.message);
-    //     }
-    // }
+    for (let i = 0; i < NUMBER_OF_POST_CATEGORIES; i++) {
+        const model = new PostCategoryModel();
+        const entity = model.createEntity();
+        entity.categoryId = faker.helpers.arrayElement(categoryIds);
+        entity.postId = faker.helpers.arrayElement(postIds);
+        entity.creationAt = faker.date.between({ from: '2024-01-01T00:00:00.000Z', to: '2024-10-15T00:00:00.000Z' });
+        try {
+            await entity.save();
+        } catch (e) {
+            console.error(e.message);
+        }
+    }
+
+    for (let i = 0; i < NUMBER_OF_POST_FAVORITES; i++) {
+        const model = new PostFavoriteModel();
+        const entity = model.createEntity();
+        entity.creationById = faker.helpers.arrayElement(userIds);
+        entity.postId = faker.helpers.arrayElement(postIds);
+        entity.creationAt = faker.date.between({ from: '2024-01-01T00:00:00.000Z', to: '2024-10-15T00:00:00.000Z' });
+        try {
+            await entity.save();
+        } catch (e) {
+            console.error(e.message);
+        }
+    }
+
     //
     // for (let i = 0; i < NUMBER_OF_LIKES; i++) {
     //     for (let i = 0; i < postIds.length; i++) {

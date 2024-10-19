@@ -1,7 +1,14 @@
 const Model = require('./../model');
 const PostEntity = require('./entity');
+const PostCategoryModel = require('./category/model');
+const PostFavoritesModel = require('./favorite/model');
 
 class PostModel extends Model {
+    /**
+     * @type {{categories: PostCategoryModel, favorites: PostFavoritesModel}}
+     */
+    _subModels = {};
+
     constructor() {
         super(
             'posts',
@@ -17,6 +24,11 @@ class PostModel extends Model {
             ],
             PostEntity
         );
+
+        this._subModels = {
+            categories: new PostCategoryModel(),
+            favorites: new PostFavoritesModel()
+        };
     }
 
     /**

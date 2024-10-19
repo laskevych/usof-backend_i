@@ -10,6 +10,11 @@ class Model {
     _creationByRelationFieldName = 'creationById';
 
     /**
+     * @type {{}}
+     */
+    _subModels = {};
+
+    /**
      * @param {string} table
      * @param {[string]} fields
      * @param {Entity} entityClass
