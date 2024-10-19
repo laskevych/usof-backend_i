@@ -7,6 +7,7 @@ const jwtMiddleware = require('./middleware/jwt');
 const userRouter = require('./routes/userRoutes');
 const postRouter = require('./routes/postRoutes');
 const categoryRouter = require('./routes/categoryRoutes');
+const commentRouter = require('./routes/commentRoutes');
 
 const app = express();
 const PORT = 8080;
@@ -17,6 +18,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api/posts/', jwtMiddleware.setUserByJWT, postRouter);
 app.use('/api/categories/', jwtMiddleware.setUserByJWT, categoryRouter);
+app.use('/api/comments/', jwtMiddleware.setUserByJWT, commentRouter);
 app.use('/api/users/', jwtMiddleware.setUserByJWT, userRouter);
 
 

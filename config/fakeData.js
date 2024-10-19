@@ -4,8 +4,8 @@ const UserModel = require('./../models/user/model');
 const CategoryModel = require('./../models/category/model');
 const PostCategoryModel = require('./../models/post/category/model');
 const PostFavoriteModel = require('./../models/post/favorite/model');
-// const Comment = require('./../engine/comment/module');
-// const Like = require('./../engine/like/module');
+const CommentModel = require('./../models/comment/model');
+const LikeModel = require('./../models/like/model');
 
 (async () => {
     const NUMBER_OF_USERS = 15;
@@ -13,13 +13,13 @@ const PostFavoriteModel = require('./../models/post/favorite/model');
     const NUMBER_OF_CATEGORIES = 8;
     const NUMBER_OF_POST_CATEGORIES = 200;
     const NUMBER_OF_POST_FAVORITES = NUMBER_OF_USERS * (NUMBER_OF_POSTS/10);
-    // const NUMBER_OF_COMMENTS = 50;
-    // const NUMBER_OF_LIKES = 10;
+    const NUMBER_OF_COMMENTS = 50;
+    const NUMBER_OF_LIKES = 10;
 
     let userIds = [];
     let postIds = [];
     let categoryIds = [];
-    // let commentIds = [];
+    let commentIds = [];
 
     for (let i = 0; i < NUMBER_OF_USERS; i++) {
         const model = new UserModel();
@@ -63,20 +63,19 @@ const PostFavoriteModel = require('./../models/post/favorite/model');
 
         categoryIds.push(entity.id);
     }
-    //
-    // for (let i = 0; i < NUMBER_OF_COMMENTS; i++) {
-    //     const module = new Comment();
-    //     const record = module.createRecordObject();
-    //     record.createdByUserId = faker.helpers.arrayElement(userIds);
-    //     record.postId = faker.helpers.arrayElement(postIds);
-    //     record.content = faker.lorem.sentence();
-    //     record.createdAt = faker.date.between({ from: '2022-01-01T00:00:00.000Z', to: '2024-10-05T00:00:00.000Z' });
-    //     record.updatedAt = faker.date.between({ from: '2022-01-01T00:00:00.000Z', to: '2024-10-05T00:00:00.000Z' });
-    //     await record.save();
-    //
-    //     commentIds.push(record.id);
-    // }
-    //
+
+    for (let i = 0; i < NUMBER_OF_COMMENTS; i++) {
+        const model = new CommentModel();
+        const entity = model.createEntity();
+        entity.creationById = faker.helpers.arrayElement(userIds);
+        entity.postId = faker.helpers.arrayElement(postIds);
+        entity.content = faker.lorem.sentence();
+        entity.creationAt = faker.date.between({ from: '2024-01-01T00:00:00.000Z', to: '2024-10-15T00:00:00.000Z' });
+        await entity.save();
+
+        commentIds.push(entity.id);
+    }
+
     for (let i = 0; i < NUMBER_OF_POST_CATEGORIES; i++) {
         const model = new PostCategoryModel();
         const entity = model.createEntity();
@@ -103,43 +102,40 @@ const PostFavoriteModel = require('./../models/post/favorite/model');
         }
     }
 
-    //
-    // for (let i = 0; i < NUMBER_OF_LIKES; i++) {
-    //     for (let i = 0; i < postIds.length; i++) {
-    //         const module = new Like();
-    //         const record = module.createRecordObject();
-    //         record.createdByUserId = faker.helpers.arrayElement(userIds);
-    //         record.postId = faker.helpers.arrayElement(postIds);
-    //         record.type = faker.helpers.arrayElement(['like', 'dislike']);
-    //         record.createdAt = faker.date.between({ from: '2022-01-01T00:00:00.000Z', to: '2024-10-05T00:00:00.000Z' });
-    //         record.updatedAt = faker.date.between({ from: '2022-01-01T00:00:00.000Z', to: '2024-10-05T00:00:00.000Z' });
-    //         try {
-    //             await record.save();
-    //         } catch (e) {
-    //             console.error(e.message);
-    //         }
-    //     }
-    //
-    //     for (let i = 0; i < commentIds.length; i++) {
-    //         const module = new Like();
-    //         const record = module.createRecordObject();
-    //         record.createdByUserId = faker.helpers.arrayElement(userIds);
-    //         record.commentId = faker.helpers.arrayElement(commentIds);
-    //         record.type = faker.helpers.arrayElement(['like', 'dislike']);
-    //         record.createdAt = faker.date.between({ from: '2022-01-01T00:00:00.000Z', to: '2024-10-05T00:00:00.000Z' });
-    //         record.updatedAt = faker.date.between({ from: '2022-01-01T00:00:00.000Z', to: '2024-10-05T00:00:00.000Z' });
-    //         try {
-    //             await record.save();
-    //         } catch (e) {
-    //             console.error(e.message);
-    //         }
-    //     }
-    // }
-    //
-    // const postModule = new Post();
-    // const likeModule = new Like();
-    // const posts = await postModule.getRecords();
-    // for (const post of posts) {
-    //     await likeModule.recalculateLikesByPostId(post.id);
-    // }
+
+    for (let i = 0; i < NUMBER_OF_LIKES; i++) {
+        for (let i = 0; i < postIds.length; i++) {
+            const model = new LikeModel();
+            const entity = model.createEntity();
+            entity.creationById = faker.helpers.arrayElement(userIds);
+            entity.postId = faker.helpers.arrayElement(postIds);
+            entity.type = faker.helpers.arrayElement(['like', 'dislike']);
+            entity.creationAt = faker.date.between({ from: '2024-01-01T00:00:00.000Z', to: '2024-10-15T00:00:00.000Z' });
+            try {
+                await entity.save();
+            } catch (e) {
+                console.error(e.message);
+            }
+        }
+
+        for (let i = 0; i < commentIds.length; i++) {
+            const model = new LikeModel();
+            const entity = model.createEntity();
+            entity.creationById = faker.helpers.arrayElement(userIds);
+            entity.commentId = faker.helpers.arrayElement(commentIds);
+            entity.type = faker.helpers.arrayElement(['like', 'dislike']);
+            entity.creationAt = faker.date.between({ from: '2024-01-01T00:00:00.000Z', to: '2024-10-15T00:00:00.000Z' });
+            try {
+                await entity.save();
+            } catch (e) {
+                console.error(e.message);
+            }
+        }
+    }
+
+    const postModel = new PostModel();
+    const posts = await postModel.getEntities();
+    for (const post of posts) {
+        await post.recalculateLikes();
+    }
 })();

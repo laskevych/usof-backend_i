@@ -18,7 +18,7 @@ class CategoryController extends Controller {
             .removeCreate()
             .setRead()
             .removeUpdate()
-            .removeDelete()
+            .removeDelete();
     }
 }
 

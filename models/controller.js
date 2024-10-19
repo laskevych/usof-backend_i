@@ -79,7 +79,6 @@ class Controller {
      * @param {Object} additionalData
      * @param {string} message
      * @return {Promise<e.Response>}
-     * @private
      */
     async _returnResponse(res, statusCode, additionalData = {}, message = undefined) {
         return res.status(statusCode).json({
@@ -94,7 +93,6 @@ class Controller {
      * @param {Object} additionalData
      * @param {string} message
      * @return {Promise<e.Response>}
-     * @private
      */
     async _returnNotFound(res, statusCode = 404, additionalData = {}, message = "Entity not found") {
         return this._returnResponse(res, statusCode, additionalData, message);
@@ -202,8 +200,8 @@ class Controller {
             return this._returnResponse(res, 200, {
                 data: entity.toJSON()
             });
-        } catch (error) {
-            next(error);
+        } catch (e) {
+            next(e);
         }
     }
 
@@ -225,8 +223,8 @@ class Controller {
             return this._returnResponse(res, 200, {
                 data: entity.toJSON()
             });
-        } catch (error) {
-            next(error);
+        } catch (e) {
+            next(e);
         }
     }
 
@@ -344,7 +342,6 @@ class Controller {
     /**
      * @param {e.Request} req
      * @return {{}}
-     * @private
      */
     _prepareFields(req) {
         const fields = {};

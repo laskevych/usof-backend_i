@@ -112,7 +112,7 @@ class Model {
      * @param {string} orderBy
      * @param {number} limit
      * @param {number} offset
-     * @return {Promise<*>}
+     * @return {Promise<[Entity]|Entity>}
      */
     async getEntities(
         fields = [],
@@ -160,7 +160,7 @@ class Model {
 
     /**
      * @param {number} id
-     * @return {Promise<*>}
+     * @return {Promise<Entity>}
      */
     async getEntityById(id) {
         return await this.getEntities(

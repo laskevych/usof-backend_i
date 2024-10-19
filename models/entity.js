@@ -1,9 +1,14 @@
+const Model = require('./model');
+
 class Entity {
+    /**
+     * @type {Model}
+     */
     _model;
 
     /**
-     * @param model
-     * @param data
+     * @param {Model} model
+     * @param {Object} data
      */
     constructor(model, data = {}) {
         this._model = model;

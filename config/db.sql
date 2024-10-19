@@ -111,7 +111,6 @@ CREATE TABLE IF NOT EXISTS `likes` (
     `commentId` INT(10) UNSIGNED NULL,
     `type` ENUM ('like', 'dislike') DEFAULT 'like' NOT NULL,
     `creationAt` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    `updatedAt` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY (`id`),
     UNIQUE KEY `comment_like_user_unique` (`creationById`, `commentId`),
     UNIQUE KEY `post_like_user_unique` (`creationById`, `postId`),
