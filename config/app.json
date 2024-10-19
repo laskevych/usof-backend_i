@@ -1,0 +1,14 @@
+{
+  "database": {
+    "host": "localhost",
+    "port": 3306,
+    "database": "usof_irepeshko",
+    "user": "irepeshko",
+    "password": "securepass",
+    "connectionLimit": 5,
+    "waitForConnections": true,
+    "queueLimit": 0
+  },
+  "salt": "usof_application",
+  "jwtSecret": "usof_application"
+}
