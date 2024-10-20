@@ -10,5 +10,15 @@
     "queueLimit": 0
   },
   "salt": "usof_application",
-  "jwtSecret": "usof_application"
+  "jwtSecret": "usof_application",
+  "jwtExpiresIn": "7d",
+  "mailer": {
+    "host": "smtp.ethereal.email",
+    "port": 587,
+    "secure": false,
+    "auth": {
+      "user": "ricky43@ethereal.email",
+      "pass": "4e1zbM2nxsMu2d823E"
+    }
+  }
 }

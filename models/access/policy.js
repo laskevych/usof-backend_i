@@ -162,6 +162,14 @@ class AccessPolicy {
     removeDelete() {
         return this.#removeAccessForOperation('delete');
     }
+
+    removeAll() {
+        return this
+            .removeCreate()
+            .removeRead()
+            .removeUpdate()
+            .removeDelete();
+    }
 }
 
 module.exports = AccessPolicy;

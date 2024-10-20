@@ -8,6 +8,7 @@ const userRouter = require('./routes/userRoutes');
 const postRouter = require('./routes/postRoutes');
 const categoryRouter = require('./routes/categoryRoutes');
 const commentRouter = require('./routes/commentRoutes');
+const authRoutes = require('./routes/authRoutes');
 
 const app = express();
 const PORT = 8080;
@@ -16,6 +17,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/api/auth/', jwtMiddleware.setUserByJWT, authRoutes);
 app.use('/api/posts/', jwtMiddleware.setUserByJWT, postRouter);
 app.use('/api/categories/', jwtMiddleware.setUserByJWT, categoryRouter);
 app.use('/api/comments/', jwtMiddleware.setUserByJWT, commentRouter);

@@ -99,6 +99,17 @@ class Controller {
     }
 
     /**
+     * @param {e.Response} res
+     * @param {number} statusCode
+     * @param {Object} additionalData
+     * @param {string} message
+     * @return {Promise<e.Response>}
+     */
+    async _returnAccessDenied(res, statusCode = 401, additionalData = {}, message = "Access denied") {
+        return this._returnResponse(res, statusCode, additionalData, message);
+    }
+
+    /**
      * @param {e.Request} req
      * @param {e.Response} res
      * @param {e.NextFunction} next
@@ -323,12 +334,7 @@ class Controller {
         }
 
         if (!accessOperation) {
-            return this._returnResponse(
-                res,
-                req?.user?.id ? 403 : 401,
-                {},
-                "Access denied"
-            );
+            return this._returnAccessDenied(res, req?.user?.id ? 403 : 401);
         }
 
         req.accessOperation = accessOperation;
