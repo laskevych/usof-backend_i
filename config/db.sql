@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS `users` (
    `password` VARCHAR(150) NOT NULL,
    `email` VARCHAR(250) NOT NULL,
    `isVerified` BOOLEAN NOT NULL DEFAULT FALSE,
-   `profilePicture` VARCHAR(50) DEFAULT NULL,
+   `profilePicture` VARCHAR(50) DEFAULT 'default.png',
    `rating` INT(10) NOT NULL DEFAULT 0,
    `role` ENUM ('user', 'admin') DEFAULT 'user' NOT NULL,
    `creationAt` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,

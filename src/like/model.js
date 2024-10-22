@@ -1,6 +1,8 @@
 const Model = require('./../model');
 const LikeEntity = require('./entity');
 const Where = require('./../sql/where');
+const UserEntity = require('./../user/entity');
+const UserModel = require('./../user/model');
 
 class LikeModel extends Model {
     constructor() {
@@ -17,6 +19,14 @@ class LikeModel extends Model {
             ],
             LikeEntity
         );
+    }
+
+    /**
+     * @param {number} userId
+     * @return {Promise<UserEntity>}
+     */
+    async getAuthorById(userId) {
+        return (new UserModel()).getEntityById(userId);
     }
 
     /**

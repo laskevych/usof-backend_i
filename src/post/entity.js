@@ -11,12 +11,21 @@ class PostEntity extends Entity {
      */
     constructor(model, data = {}) {
         super(model, data);
+
+        this._publicFields.push('author', 'categories');
     }
 
     async recalculateLikes() {
         if (this.id) {
             await this._model.recalculateLikesByPostId(this.id);
         }
+    }
+
+    _getRelationFields() {
+        return {
+            author: async () => await this._model.getAuthorById(this.creationById),
+            categories: async () => await this._model.getCategoriesByPostId(this.id)
+        };
     }
 }
 

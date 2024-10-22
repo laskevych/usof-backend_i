@@ -3,6 +3,8 @@ const PostEntity = require('./entity');
 const PostCategoryModel = require('./category/model');
 const PostFavoritesModel = require('./favorite/model');
 const LikeModel = require('./../like/model');
+const UserEntity = require('./../user/entity');
+const UserModel = require('./../user/model');
 
 class PostModel extends Model {
     /**
@@ -62,6 +64,22 @@ class PostModel extends Model {
 
         post.likes = numberOfLikes;
         await post.save();
+    }
+
+    /**
+     * @param {number} userId
+     * @return {Promise<UserEntity>}
+     */
+    async getAuthorById(userId) {
+        return (new UserModel()).getEntityById(userId);
+    }
+
+    /**
+     * @param {number} postId
+     * @return {Promise<CategoryEntity[]>}
+     */
+    async getCategoriesByPostId(postId) {
+        return this._subModels.categories.getCategoriesByPostId(postId);
     }
 
     /**

@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const UserController = require('./controller');
 const controller = new UserController();
-const avatarMiddleware = require('./middlewares/avatarUploader');
+const profilePictureUploaderMiddleware = require('./middlewares/profilePictureUploader');
 
 router.get('/',
     controller.setAccessPolicy.bind(controller),
@@ -28,7 +28,7 @@ router.patch('/:id/',
 
 router.patch('/:id/avatar/',
     controller.setAccessPolicy.bind(controller),
-    avatarMiddleware.upload,
+    profilePictureUploaderMiddleware.upload,
     controller.update.bind(controller)
 );
 

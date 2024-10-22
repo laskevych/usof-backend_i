@@ -254,7 +254,7 @@ class Controller {
             )
         ];
 
-        filters = [...req?.accessOperation.filter, ...filters];
+        filters = [...req?.accessOperation?.filter, ...filters];
 
         return await this._model.getEntities(req?.accessOperation.fields, filters, 'id', 1);
     }

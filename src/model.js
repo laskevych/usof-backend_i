@@ -135,6 +135,10 @@ class Model {
             return this.createEntity(item);
         });
 
+        for (const entity of entities) {
+            await entity.prepareRelationFields();
+        }
+
         if (limit === 1) {
             return entities.length === 1 ? entities[0] : null;
         } else {

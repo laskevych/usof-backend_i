@@ -2,9 +2,9 @@ const { v4: uuidv4 } = require('uuid');
 const multer = require('multer');
 const path = require('path');
 
-const avatarDir = path.join(__dirname, '../../public/avatars');
+const profilePictureDir = path.join(__dirname, '../../../public/profile-pictures');
 
-const AvatarFilter = (request, file, cb) => {
+const profilePictureFilter = (request, file, cb) => {
     const allowedTypes = new RegExp(/png|jpg|jpeg/);
     const mimeType = allowedTypes.test(file.mimetype);
     const extName = allowedTypes.test(path.extname(file.originalname).toLowerCase());
@@ -18,7 +18,7 @@ const AvatarFilter = (request, file, cb) => {
     }
 };
 
-const AvatarStorage = multer.diskStorage({
+const profilePictureStorage = multer.diskStorage({
     filename: (request, file, cb) => {
         const uniqueFilename = uuidv4(
             undefined,
@@ -28,15 +28,15 @@ const AvatarStorage = multer.diskStorage({
         cb(null, uniqueFilename);
     },
     destination: (request, file, cb) => {
-        cb(null, avatarDir);
+        cb(null, profilePictureDir);
     }
 });
 
 const upload = multer({
-    fileFilter: AvatarFilter,
+    fileFilter: profilePictureFilter,
     limits: { fileSize: 10485760 },
-    storage: AvatarStorage
-}).single('avatar');
+    storage: profilePictureStorage
+}).single('profilePicture');
 
 
 exports.upload = (req, res, next) => {

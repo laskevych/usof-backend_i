@@ -1,5 +1,7 @@
 const Model = require('./../model');
 const CommentEntity = require('./entity');
+const UserEntity = require('./../user/entity');
+const UserModel = require('./../user/model');
 
 class CommentModel extends Model {
     constructor() {
@@ -15,6 +17,14 @@ class CommentModel extends Model {
             ],
             CommentEntity
         );
+    }
+
+    /**
+     * @param {number} userId
+     * @return {Promise<UserEntity>}
+     */
+    async getAuthorById(userId) {
+        return (new UserModel()).getEntityById(userId);
     }
 }
 

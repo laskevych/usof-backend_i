@@ -6,6 +6,8 @@ class Entity {
      */
     _model;
 
+    _publicFields = [];
+
     /**
      * @param {Model} model
      * @param {Object} data
@@ -19,6 +21,8 @@ class Entity {
                 }
             }
         }
+
+        this._publicFields = this._model._fields;
     }
 
     async save() {
@@ -55,18 +59,54 @@ class Entity {
         }
     }
 
-    toJSON() {
-        const result = {};
+    _getRelationFields() {
+        return {};
+    }
 
-        this._model._fields.forEach(field => {
-            if (
-                this[field] !== undefined
-            ) {
-                result[field] = this[field]
+    async prepareRelationFields() {
+        if (typeof this._getRelationFields !== 'function') {
+            return;
+        }
+
+        const relationFields = this._getRelationFields();
+        await Promise.all(
+            Object.keys(relationFields).map(async (field) => this[field] = await relationFields[field]())
+        );
+    }
+
+    /**
+     * @return {Object}
+     */
+    toJSON() {
+        const jsonEntity = {};
+        this._publicFields.forEach(field => {
+            if (this[field] === undefined || this[field] === null) {
+                return;
             }
+
+            let value = this[field];
+            if (typeof value === 'object' && (
+                value instanceof Entity
+                || value?.constructor?.name === 'Entity'
+            )) {
+                value = value.toJSON();
+            }
+
+            if (Array.isArray(value)) {
+                value = value.map(item => {
+                    if (typeof item === 'object' && (
+                        item instanceof Entity
+                        || item?.constructor?.name === 'Entity'
+                    )) {
+                        return item.toJSON();
+                    }
+                })
+            }
+
+            jsonEntity[field] = value;
         });
 
-        return result;
+        return jsonEntity;
     }
 
 }
