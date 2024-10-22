@@ -1,7 +1,7 @@
-const Where = require('./models/sql/where');
-const UserModel = require('./models/user/model');
-const AccessPolicy = require("./models/access/policy");
-const AccessOperation = require("./models/access/operation");
+const Where = require('./src/sql/where');
+const UserModel = require('./src/user/model');
+const AccessPolicy = require("./src/access/policy");
+const AccessOperation = require("./src/access/operation");
 
 const model = new UserModel();
 /**

@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const postController = require('./../models/post/controller');
+const postController = require('./controller');
 
 router.get('/',
     postController.setAccessPolicy.bind(postController),

@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const authController = require('./../models/auth/controller');
+const authController = require('./controller');
 
 router.post('/register',
     authController.setAccessPolicy.bind(authController),

@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const commentController = require('./../models/comment/controller');
+const commentController = require('./controller');
 
 router.get('/:id/',
     commentController.setAccessPolicy.bind(commentController),

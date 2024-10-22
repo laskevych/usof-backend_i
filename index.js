@@ -2,13 +2,13 @@ const express = require('express');
 const path = require('path');
 const config = require('./config/app.json');
 
-const jwtMiddleware = require('./middleware/jwt');
+const jwtMiddleware = require('./src/auth/middlewares/jwt');
 
-const userRouter = require('./routes/userRoutes');
-const postRouter = require('./routes/postRoutes');
-const categoryRouter = require('./routes/categoryRoutes');
-const commentRouter = require('./routes/commentRoutes');
-const authRoutes = require('./routes/authRoutes');
+const userRouter = require('./src/user/routes');
+const postRouter = require('./src/post/routes');
+const categoryRouter = require('./src/category/routes');
+const commentRouter = require('./src/comment/routes');
+const authRoutes = require('./src/auth/routes');
 
 const app = express();
 const PORT = 8080;

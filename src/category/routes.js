@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const categoryController = require('./../models/category/controller');
+const categoryController = require('./controller');
 
 router.get('/',
     categoryController.setAccessPolicy.bind(categoryController),

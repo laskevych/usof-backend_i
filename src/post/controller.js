@@ -14,9 +14,9 @@ class PostController extends Controller {
                 .notEmpty().withMessage('Content cannot be empty')
         ]);
 
-        this._totalEntitiesPerPage = 5;
+        this._totalEntitiesPerPage = 10;
 
-        const allowedFieldsForUser = this._model._fields.filter(field => !['likes', 'isTop', 'showOnHomepage'].includes(field))
+        const allowedFieldsForUser = this._model._fields.filter(field => !['likes', 'showOnHomepage'].includes(field));
         this._accessPolicies.user
             .setCreate(allowedFieldsForUser)
             .setRead([], [
@@ -26,7 +26,10 @@ class PostController extends Controller {
                 ]
             ])
             .setUpdate(allowedFieldsForUser, [ { field: this._model._creationByRelationFieldName, operator: '=', value: ''} ])
-            .setDelete(allowedFieldsForUser, [ { field: this._model._creationByRelationFieldName, operator: '=', value: ''} ])
+            .setDelete(allowedFieldsForUser, [ { field: this._model._creationByRelationFieldName, operator: '=', value: ''} ]);
+
+        this._accessPolicies.guest
+            .setRead([], [{ field: 'status', operator: '=', value: 'active' }]);
     }
 
     /**

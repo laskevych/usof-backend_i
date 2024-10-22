@@ -1,11 +1,11 @@
 const { faker } = require('@faker-js/faker');
-const PostModel = require('./../models/post/model');
-const UserModel = require('./../models/user/model');
-const CategoryModel = require('./../models/category/model');
-const PostCategoryModel = require('./../models/post/category/model');
-const PostFavoriteModel = require('./../models/post/favorite/model');
-const CommentModel = require('./../models/comment/model');
-const LikeModel = require('./../models/like/model');
+const PostModel = require('./../src/post/model');
+const UserModel = require('./../src/user/model');
+const CategoryModel = require('./../src/category/model');
+const PostCategoryModel = require('./../src/post/category/model');
+const PostFavoriteModel = require('./../src/post/favorite/model');
+const CommentModel = require('./../src/comment/model');
+const LikeModel = require('./../src/like/model');
 
 (async () => {
     const NUMBER_OF_USERS = 15;
