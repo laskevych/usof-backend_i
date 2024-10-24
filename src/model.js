@@ -46,7 +46,7 @@ class Model {
     /**
      * @param {[Where|[Where]]} where
      */
-    _getWhere(where) {
+    async _getWhere(where) {
         let result = '';
         for (let i = 0; i < where.length; i++) {
             if (result === '') {
@@ -123,7 +123,7 @@ class Model {
     ) {
         const query = `
             ${this._getSelect(fields)}
-            ${this._getWhere(where)}
+            ${await this._getWhere(where)}
             ${this._getOrderBy(orderBy)}
             ${this._getLimit(limit)}
             ${this._getOffset(offset)}
@@ -156,7 +156,7 @@ class Model {
                 COUNT(id) AS counter
             FROM
                 ${this._table}
-            ${this._getWhere(where)}
+            ${await this._getWhere(where)}
         `);
 
         return result[0].counter;

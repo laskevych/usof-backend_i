@@ -5,6 +5,7 @@ const PostFavoritesModel = require('./favorite/model');
 const LikeModel = require('./../like/model');
 const UserEntity = require('./../user/entity');
 const UserModel = require('./../user/model');
+const Where = require("../sql/where");
 
 class PostModel extends Model {
     /**
@@ -85,31 +86,24 @@ class PostModel extends Model {
     /**
      *
      * @param {[Where|[Where]]} where
-     * @private
-     * @todo
      */
-    // _getWhere(where) {
-    //     for (const filter of where) {
-    //         if (filter.field === 'categories') {
-    //             const postCategory = new PostCategoryModule();
-    //             const postCategories = await postCategory.getRecords([
-    //                 {
-    //                     field: 'categoryId',
-    //                     condition: 'IN',
-    //                     value: filter.value
-    //                 }
-    //             ]);
-    //
-    //             const postIds = postCategories.map(postCategory => postCategory.postId);
-    //
-    //             filter.field = 'id';
-    //             filter.condition = 'IN';
-    //             filter.value = postIds.length === 0 ? [0] : postIds;
-    //         }
-    //     }
-    //
-    //     return super._getWhere(where);
-    // }
+    async _getWhere(where) {
+        for (const item of where) {
+            if (item.field === 'categories') {
+                const postCategories = await this._subModels.categories.getEntities([], [
+                    new Where('categoryId', 'IN', item.value)
+                ]);
+
+                const postIds = postCategories.map(postCategory => postCategory.postId);
+
+                item.field = 'id';
+                item.condition = 'IN';
+                item.value = postIds.length === 0 ? [0] : postIds;
+            }
+        }
+
+        return super._getWhere(where);
+    }
 }
 
 module.exports = PostModel;

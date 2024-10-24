@@ -20,6 +20,39 @@ class CategoryController extends Controller {
             .removeUpdate()
             .removeDelete();
     }
+
+    /**
+     * @inheritDoc
+     */
+    _prepareFilters(req) {
+        const filter = [];
+        const allowedFilter = ['postId'];
+        Object.keys(req.query).forEach(fieldName => {
+            if (allowedFilter.includes(fieldName) && !filter.hasOwnProperty(fieldName)) {
+                filter.push(new Where(fieldName, '=', req.query[fieldName]));
+            }
+        });
+
+        return filter;
+    }
+
+    /**
+     * @param {e.Request} req
+     * @param {e.Response} res
+     * @param {e.NextFunction} next
+     * @return {Promise<e.Response>}
+     */
+    async getCategoriesByPostId(req, res, next) {
+        try {
+            const categories = await this._model.getCategoriesByPostId(req.params.postId)
+
+            return this._returnResponse(res, 200, {
+                data: categories.map(entity => entity.toJSON())
+            });
+        } catch (e) {
+            next(e);
+        }
+    }
 }
 
 module.exports = new CategoryController();

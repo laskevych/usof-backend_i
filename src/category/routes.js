@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const categoryController = require('./controller');
+const postController = require('./../post/controller');
 
 router.get('/',
     categoryController.setAccessPolicy.bind(categoryController),
@@ -27,6 +28,11 @@ router.patch('/:id/',
 router.delete('/:id/',
     categoryController.setAccessPolicy.bind(categoryController),
     categoryController.delete.bind(categoryController)
+);
+
+router.get('/:categoryId/posts/',
+    postController.setAccessPolicy.bind(postController),
+    postController.getPostsByCategoryId.bind(postController)
 );
 
 module.exports = router;

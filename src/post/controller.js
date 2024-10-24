@@ -103,6 +103,18 @@ class PostController extends Controller {
      * @param {e.NextFunction} next
      * @return {Promise<e.Response>}
      */
+    async getPostsByCategoryId(req, res, next) {
+        req.query.categories = req.params.categoryId;
+
+        return this.getAll(req, res, next);
+    }
+
+    /**
+     * @param {e.Request} req
+     * @param {e.Response} res
+     * @param {e.NextFunction} next
+     * @return {Promise<e.Response>}
+     */
     async getFavoritePosts(req, res, next) {
         //TODO
     }
