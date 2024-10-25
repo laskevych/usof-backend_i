@@ -13,7 +13,8 @@ class CommentController extends Controller {
         ]);
 
         this._accessPolicies.user
-            .setRead();
+            .setRead()
+            .setUpdate(['status', 'isHelpful'], [ { field: this._model._creationByRelationFieldName, operator: '=', value: '' } ]);
 
         this._accessPolicies.guest
             .setRead();
@@ -46,7 +47,7 @@ class CommentController extends Controller {
      */
     _prepareFilters(req) {
         const filter = [];
-        const allowedFilter = ['postId', 'createdByUserId'];
+        const allowedFilter = ['postId', 'creationById'];
         Object.keys(req.query).forEach(fieldName => {
             if (allowedFilter.includes(fieldName) && !filter.hasOwnProperty(fieldName)) {
                 filter.push(new Where(fieldName, '=', req.query[fieldName]));

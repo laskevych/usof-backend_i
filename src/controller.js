@@ -121,7 +121,7 @@ class Controller {
             filters = this._prepareFilters(req);
             sort = this._prepareSort(req);
 
-            filters = [...req?.accessOperation.filter, ...filters];
+            filters = [...req?.accessOperation?.filter, ...filters];
 
             const totalEntities = await this._model.getEntitiesCount(filters);
 
@@ -177,7 +177,7 @@ class Controller {
     async create(req, res, next) {
         try {
             const fields = this._prepareFields(req);
-            if (req.accessOperation.fields.includes(this._model._creationByRelationFieldName)) {
+            if (this._model._fields.includes(this._model._creationByRelationFieldName)) {
                 fields[this._model._creationByRelationFieldName] = req.user.id;
             }
 
@@ -243,7 +243,6 @@ class Controller {
      *
      * @param {e.Request} req
      * @return {Promise<Entity>}
-     * @private
      */
     async _getEntityByIdAndAccessFilter(req) {
         let filters = [
@@ -256,7 +255,7 @@ class Controller {
 
         filters = [...req?.accessOperation?.filter, ...filters];
 
-        return await this._model.getEntities(req?.accessOperation.fields, filters, 'id', 1);
+        return await this._model.getEntities([], filters, 'id', 1);
     }
 
     /**

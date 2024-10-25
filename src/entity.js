@@ -22,7 +22,7 @@ class Entity {
             }
         }
 
-        this._publicFields = this._model._fields;
+        this._publicFields = [...this._model._fields];
     }
 
     async save() {

@@ -13,6 +13,7 @@ class CommentModel extends Model {
                 'creationById',
                 'content',
                 'isHelpful',
+                'status',
                 'creationAt'
             ],
             CommentEntity

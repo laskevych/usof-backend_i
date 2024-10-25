@@ -14,6 +14,33 @@ class UserEntity extends Entity {
         delete result?.password;
         return result;
     }
+
+    /**
+     * @return {Promise<void>}
+     */
+    async increaseRating() {
+        return this._changeRating(1);
+    }
+
+    /**
+     * @return {Promise<void>}
+     */
+    async decreaseRating() {
+        return this._changeRating(-1);
+    }
+
+    /**
+     * @param number
+     * @return {Promise<void>}
+     * @private
+     */
+    async _changeRating(number) {
+        if (this.id) {
+            this.rating += number;
+        }
+
+        return this.save();
+    }
 }
 
 module.exports = UserEntity;

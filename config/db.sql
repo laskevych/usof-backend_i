@@ -92,6 +92,7 @@ CREATE TABLE IF NOT EXISTS `comments` (
     `creationById` INT(10) UNSIGNED NOT NULL,
     `content` TEXT NOT NULL,
     `isHelpful` BOOLEAN DEFAULT FALSE,
+    `status` ENUM ('active', 'inactive') DEFAULT 'active' NOT NULL,
     `creationAt` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (`id`),
     INDEX `comments_postId_i` (postId),

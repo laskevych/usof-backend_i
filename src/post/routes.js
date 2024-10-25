@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const postController = require('./controller');
 const categoryController = require('./../category/controller');
+const commentController = require('./../comment/controller');
+const likeController = require("../like/controller");
 
 router.get('/',
     postController.setAccessPolicy.bind(postController),
@@ -33,6 +35,32 @@ router.delete('/:id/',
 router.get('/:postId/categories',
     categoryController.setAccessPolicy.bind(categoryController),
     categoryController.getCategoriesByPostId.bind(categoryController)
+);
+
+router.get('/:postId/comments',
+    commentController.setAccessPolicy.bind(commentController),
+    commentController.getCommentsByPostId.bind(commentController)
+);
+
+router.post('/:postId/comments',
+    commentController.setAccessPolicy.bind(commentController),
+    commentController.createCommentByPostId.bind(commentController)
+);
+
+router.get('/:postId/like/',
+    likeController.setAccessPolicy.bind(likeController),
+    likeController.getLikesByPostId.bind(likeController)
+);
+
+router.post('/:postId/like/',
+    likeController.setAccessPolicy.bind(likeController),
+    likeController.validateBody.bind(likeController),
+    likeController.createLikeByPostId.bind(likeController)
+);
+
+router.delete('/:postId/like/:id/',
+    likeController.setAccessPolicy.bind(likeController),
+    likeController.delete.bind(likeController)
 );
 
 module.exports = router;

@@ -1,16 +1,16 @@
 const express = require('express');
 const router = express.Router();
 const commentController = require('./controller');
+const likeController = require('./../like/controller');
+
+router.get('/',
+    commentController.setAccessPolicy.bind(commentController),
+    commentController.getAll.bind(commentController)
+);
 
 router.get('/:id/',
     commentController.setAccessPolicy.bind(commentController),
     commentController.getById.bind(commentController)
-);
-
-router.post('/',
-    commentController.setAccessPolicy.bind(commentController),
-    commentController.validateBody.bind(commentController),
-    commentController.create.bind(commentController)
 );
 
 router.patch('/:id/',
@@ -22,6 +22,27 @@ router.patch('/:id/',
 router.delete('/:id/',
     commentController.setAccessPolicy.bind(commentController),
     commentController.delete.bind(commentController)
+);
+
+router.patch('/:id/setHelpful/',
+    commentController.setAccessPolicy.bind(commentController),
+    commentController.setHelpful.bind(commentController)
+);
+
+router.get('/:commentId/like/',
+    likeController.setAccessPolicy.bind(likeController),
+    likeController.getLikesByCommentId.bind(likeController)
+);
+
+router.post('/:commentId/like/',
+    likeController.setAccessPolicy.bind(likeController),
+    likeController.validateBody.bind(likeController),
+    likeController.createLikeByCommentId.bind(likeController)
+);
+
+router.delete('/:commentId/like/:id/',
+    likeController.setAccessPolicy.bind(likeController),
+    likeController.delete.bind(likeController)
 );
 
 module.exports = router;

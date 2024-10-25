@@ -36,7 +36,7 @@ class LikeModel extends Model {
      * @return {Promise<LikeEntity>}
      */
     async getLikeByCreationByIdAndPostOrCommentId(creationById, entityName, entityId) {
-        return await this.getEntities(
+        return this.getEntities(
             [],
             [
                 new Where(this._creationByRelationFieldName, '=', creationById),

@@ -70,6 +70,7 @@ const LikeModel = require('./../src/like/model');
         entity.creationById = faker.helpers.arrayElement(userIds);
         entity.postId = faker.helpers.arrayElement(postIds);
         entity.content = faker.lorem.sentence();
+        entity.status = faker.helpers.arrayElement(['active', 'inactive']);
         entity.creationAt = faker.date.between({ from: '2024-01-01T00:00:00.000Z', to: '2024-10-15T00:00:00.000Z' });
         await entity.save();
 

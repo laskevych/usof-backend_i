@@ -25,9 +25,13 @@ class PostCategoryModel extends Model {
             new Where('postId', '=', postId)
         ]);
 
-        return (new CategoryModel()).getEntities([], [
-            new Where('id', 'IN', postCategories.map(postCategory => postCategory.categoryId))
-        ]);
+        if (postCategories.length > 0) {
+            return (new CategoryModel()).getEntities([], [
+                new Where('id', 'IN', postCategories.map(postCategory => postCategory.categoryId))
+            ]);
+        } else {
+            return [];
+        }
     }
 }
 
