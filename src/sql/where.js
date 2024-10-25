@@ -42,4 +42,4 @@ class Where {
     }
 }
 
-module.exports = Where;
+export default Where;

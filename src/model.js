@@ -1,6 +1,6 @@
-const dbConnection = require('./db');
-const Entity = require('./entity');
-const Where = require('./sql/where');
+import dbConnection from './db.js';
+import Entity from './entity.js';
+import Where from './sql/where.js';
 
 class Model {
     _dbConnection;
@@ -198,4 +198,4 @@ class Model {
     }
 }
 
-module.exports = Model;
+export default Model;

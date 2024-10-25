@@ -1,6 +1,11 @@
-const { v4: uuidv4 } = require('uuid');
+import { v4 as uuidv4 } from 'uuid';
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
 const multer = require('multer');
-const path = require('path');
+import * as path from "path";
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const profilePictureDir = path.join(__dirname, '../../../public/profile-pictures');
 
@@ -39,7 +44,7 @@ const upload = multer({
 }).single('profilePicture');
 
 
-exports.upload = (req, res, next) => {
+const uploadMiddleware = (req, res, next) => {
     upload(req, res, (err) => {
         if (err) {
             return res.status(400).json({ statusCode: res.statusCode, message: err.message });
@@ -53,3 +58,5 @@ exports.upload = (req, res, next) => {
         next();
     });
 };
+
+export default uploadMiddleware;

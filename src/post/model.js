@@ -1,11 +1,11 @@
-const Model = require('./../model');
-const PostEntity = require('./entity');
-const PostCategoryModel = require('./category/model');
-const PostFavoritesModel = require('./favorite/model');
-const LikeModel = require('./../like/model');
-const UserEntity = require('./../user/entity');
-const UserModel = require('./../user/model');
-const Where = require("../sql/where");
+import Model from "../model.js";
+import PostEntity from "./entity.js";
+import PostCategoryModel from "./category/model.js";
+import PostFavoritesModel from "./favorite/model.js";
+import LikeModel from "../like/model.js";
+import UserEntity from "../user/entity.js";
+import UserModel from "../user/model.js";
+import Where from "../sql/where.js";
 
 class PostModel extends Model {
     /**
@@ -106,4 +106,4 @@ class PostModel extends Model {
     }
 }
 
-module.exports = PostModel;
+export default PostModel;

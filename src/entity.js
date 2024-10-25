@@ -1,4 +1,4 @@
-const Model = require('./model');
+import Model from "./model.js";
 
 class Entity {
     /**
@@ -111,4 +111,4 @@ class Entity {
 
 }
 
-module.exports = Entity;
+export default Entity;

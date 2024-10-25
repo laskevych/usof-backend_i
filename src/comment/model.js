@@ -1,7 +1,7 @@
-const Model = require('./../model');
-const CommentEntity = require('./entity');
-const UserEntity = require('./../user/entity');
-const UserModel = require('./../user/model');
+import Model from "../model.js";
+import CommentEntity from "./entity.js";
+import UserEntity from "../user/entity.js";
+import UserModel from "../user/model.js";
 
 class CommentModel extends Model {
     constructor() {
@@ -29,4 +29,4 @@ class CommentModel extends Model {
     }
 }
 
-module.exports = CommentModel;
+export default CommentModel;

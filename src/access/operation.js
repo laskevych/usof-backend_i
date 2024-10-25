@@ -1,4 +1,4 @@
-const Where = require('./../sql/where')
+import Where from './../sql/where.js';
 
 class AccessOperation {
     /**
@@ -21,4 +21,4 @@ class AccessOperation {
     }
 }
 
-module.exports = AccessOperation;
+export default AccessOperation;

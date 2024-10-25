@@ -1,5 +1,6 @@
-const config = require('./../config/app.json');
-const mysql = require('mysql2/promise');
+import config from './../config/app.json' with { type: "json" };
+import mysql from 'mysql2/promise';
+
 const connection = mysql.createPool(config.database);
 
 const originalQuery = connection.query;
@@ -13,5 +14,4 @@ connection.query = async function (...args) {
     }
     return originalQuery.apply(this, args);
 };
-
-module.exports = connection;
+export default connection;

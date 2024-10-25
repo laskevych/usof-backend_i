@@ -1,8 +1,7 @@
-const e = require("express");
-const Controller = require('./../controller');
-const PostModel = require('./model');
-const Where = require('./../sql/where');
-const { body } = require("express-validator");
+import Controller from "../controller.js";
+import PostModel from "./model.js";
+import Where from "../sql/where.js";
+import { body } from "express-validator";
 
 class PostController extends Controller {
     constructor() {
@@ -120,4 +119,4 @@ class PostController extends Controller {
     }
 }
 
-module.exports = new PostController();
+export default new PostController();

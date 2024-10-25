@@ -1,7 +1,7 @@
-const Entity = require('./../entity');
+import Entity from "../entity.js";
 
 class CategoryEntity extends Entity {
 
 }
 
-module.exports = CategoryEntity;
+export default CategoryEntity;

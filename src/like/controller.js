@@ -1,10 +1,8 @@
-const e = require("express");
-const Controller = require('./../controller');
-const LikeModel = require('./model');
-const PostModel = require('./../post/model');
-const CommentModel = require('./../comment/model');
-const Where = require('./../sql/where');
-const { body } = require("express-validator");
+import Controller from './../controller.js';
+import LikeModel from "./model.js";
+import PostModel from "../post/model.js";
+import Where from "../sql/where.js";
+import { body } from "express-validator";
 
 class LikeController extends Controller {
     constructor() {
@@ -201,4 +199,4 @@ class LikeController extends Controller {
     }
 }
 
-module.exports = new LikeController();
+export default new LikeController();

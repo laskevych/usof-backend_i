@@ -1,10 +1,10 @@
-const e = require("express");
-const { body, validationResult } = require("express-validator");
-const Model = require("./model");
-const Entity = require("./entity");
-const Where = require('./sql/where');
-const AccessPolicy = require('./access/policy');
-const AccessOperation = require('./access/operation');
+import express from "express";
+import { body, validationResult } from "express-validator";
+import Model from "./model.js";
+import Entity from "./entity.js";
+import Where from './sql/where.js';
+import AccessPolicy from './access/policy.js';
+import AccessOperation from './access/operation.js';
 
 class Controller {
     /**
@@ -360,4 +360,4 @@ class Controller {
     }
 }
 
-module.exports = Controller;
+export default Controller;

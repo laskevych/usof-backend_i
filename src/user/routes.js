@@ -1,8 +1,8 @@
-const express = require('express');
+import express from "express";
+import UserController from "./controller.js";
+import uploadMiddleware from "./middlewares/profilePictureUploader.js";
 const router = express.Router();
-const UserController = require('./controller');
 const controller = new UserController();
-const profilePictureUploaderMiddleware = require('./middlewares/profilePictureUploader');
 
 router.get('/',
     controller.setAccessPolicy.bind(controller),
@@ -28,7 +28,7 @@ router.patch('/:id/',
 
 router.patch('/:id/avatar/',
     controller.setAccessPolicy.bind(controller),
-    profilePictureUploaderMiddleware.upload,
+    uploadMiddleware,
     controller.update.bind(controller)
 );
 
@@ -38,4 +38,4 @@ router.delete('/:id/',
     controller.delete.bind(controller)
 );
 
-module.exports = router;
+export default router;

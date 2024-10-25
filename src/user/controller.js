@@ -1,7 +1,6 @@
-const Controller = require('./../controller');
-const UserModel = require('./model');
-const Where = require('./../sql/where');
-const { body } = require("express-validator");
+import Controller from "../controller.js";
+import UserModel from "./model.js";
+import { body } from "express-validator";
 
 /**
  * @property {UserModel} _model
@@ -95,4 +94,4 @@ class UserController extends Controller {
     }
 }
 
-module.exports = UserController;
+export default UserController;

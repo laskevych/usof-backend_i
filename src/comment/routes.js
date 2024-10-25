@@ -1,7 +1,7 @@
-const express = require('express');
+import express from "express";
 const router = express.Router();
-const commentController = require('./controller');
-const likeController = require('./../like/controller');
+import commentController from './controller.js';
+import likeController from './../like/controller.js'
 
 router.get('/',
     commentController.setAccessPolicy.bind(commentController),
@@ -45,4 +45,4 @@ router.delete('/:commentId/like/:id/',
     likeController.delete.bind(likeController)
 );
 
-module.exports = router;
+export default router;

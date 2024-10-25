@@ -1,7 +1,7 @@
-const express = require('express');
+import express from "express";
 const router = express.Router();
-const categoryController = require('./controller');
-const postController = require('./../post/controller');
+import categoryController from './controller.js';
+import postController from './../post/controller.js';
 
 router.get('/',
     categoryController.setAccessPolicy.bind(categoryController),
@@ -35,4 +35,4 @@ router.get('/:categoryId/posts/',
     postController.getPostsByCategoryId.bind(postController)
 );
 
-module.exports = router;
+export default router;

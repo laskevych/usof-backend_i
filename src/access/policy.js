@@ -1,7 +1,6 @@
-const AccessOperation = require('./operation');
-const UserEntity = require('./../user/entity');
-const Where = require("../sql/where");
-const Model = require("./../model");
+import AccessOperation from "./operation.js";
+import Where from "../sql/where.js";
+import UserEntity from "../user/entity.js";
 
 class AccessPolicy {
     #model;
@@ -172,4 +171,4 @@ class AccessPolicy {
     }
 }
 
-module.exports = AccessPolicy;
+export default AccessPolicy;

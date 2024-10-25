@@ -1,8 +1,8 @@
-const Model = require('./../model');
-const LikeEntity = require('./entity');
-const Where = require('./../sql/where');
-const UserEntity = require('./../user/entity');
-const UserModel = require('./../user/model');
+import Model from "../model.js";
+import LikeEntity from "./entity.js";
+import Where from "../sql/where.js";
+import UserEntity from "../user/entity.js";
+import UserModel from "../user/model.js";
 
 class LikeModel extends Model {
     constructor() {
@@ -59,4 +59,4 @@ class LikeModel extends Model {
     }
 }
 
-module.exports = LikeModel;
+export default LikeModel;

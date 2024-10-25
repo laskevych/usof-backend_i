@@ -1,6 +1,6 @@
-const express = require('express');
+import express from "express";
 const router = express.Router();
-const authController = require('./controller');
+import authController from './controller.js';
 
 router.post('/register',
     authController.setAccessPolicy.bind(authController),
@@ -41,4 +41,4 @@ router.post('/logout',
     authController.logout.bind(authController)
 );
 
-module.exports = router;
+export default router;

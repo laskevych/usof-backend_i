@@ -1,9 +1,8 @@
-const e = require("express");
-const jwt = require('jsonwebtoken');
-const argon2 = require('argon2');
-const config = require('./../../config/app.json');
-const UserController = require('./../user/controller');
-const mailer = require('./../../mailer/service');
+import jwt from 'jsonwebtoken';
+import * as argon2 from "argon2";
+import config from './../../config/app.json' with { type: "json" };
+import UserController from "../user/controller.js";
+import * as mailer from "../../mailer/service.js";
 
 class AuthController extends UserController {
     constructor() {
@@ -265,4 +264,4 @@ class AuthController extends UserController {
     }
 }
 
-module.exports = new AuthController();
+export default new AuthController();

@@ -1,7 +1,7 @@
-const config = require('./../config/app.json');
-const ejs = require('ejs');
-const nodemailer = require('nodemailer');
-const path = require('path');
+import config from './../config/app.json' with { type: "json" };
+import nodemailer from 'nodemailer'
+import ejs from 'ejs';
+import * as path from "path";
 
 /**
  * @param {string} email
@@ -40,7 +40,7 @@ async function send(email, subject, htmlTemplate, dataForTemplate) {
  * @param {Object} data
  * @return {Promise<void>}
  */
-exports.sendConfirm = async function (email, data) {
+export async function sendConfirm(email, data) {
     await send(
         email,
         '[Action Required] Confirm Email',
@@ -54,7 +54,7 @@ exports.sendConfirm = async function (email, data) {
  * @param {Object} data
  * @return {Promise<void>}
  */
-exports.sendPasswordReset = async function (email, data) {
+export async function sendPasswordReset(email, data) {
     await send(
         email,
         '[Action Required] Password Reset',

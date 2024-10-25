@@ -1,4 +1,4 @@
-const Entity = require('./../entity');
+import Entity from "../entity.js";
 
 class UserEntity extends Entity {
     /**
@@ -43,4 +43,4 @@ class UserEntity extends Entity {
     }
 }
 
-module.exports = UserEntity;
+export default UserEntity;

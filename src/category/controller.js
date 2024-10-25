@@ -1,8 +1,7 @@
-const e = require("express");
-const Controller = require('./../controller');
-const CategoryModel = require('./model');
-const Where = require('./../sql/where');
-const { body } = require("express-validator");
+import Controller from './../controller.js';
+import CategoryModel from './model.js';
+import Where from './../sql/where.js';
+import { body } from "express-validator";
 
 class CategoryController extends Controller {
     constructor() {
@@ -37,9 +36,9 @@ class CategoryController extends Controller {
     }
 
     /**
-     * @param {e.Request} req
-     * @param {e.Response} res
-     * @param {e.NextFunction} next
+     * @param {Request} req
+     * @param {Response} res
+     * @param {NextFunction} next
      * @return {Promise<e.Response>}
      */
     async getCategoriesByPostId(req, res, next) {
@@ -55,4 +54,4 @@ class CategoryController extends Controller {
     }
 }
 
-module.exports = new CategoryController();
+export default new CategoryController();

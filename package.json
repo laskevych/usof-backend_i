@@ -2,11 +2,14 @@
   "name": "usof-backend_i",
   "version": "1.0.0",
   "main": "index.js",
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
     "start": "nodemon index.js"
   },
   "dependencies": {
+    "@adminjs/express": "^6.1.0",
+    "@adminjs/sql": "^2.2.6",
+    "adminjs": "^7.8.13",
     "argon2": "^0.41.1",
     "ejs": "^3.1.10",
     "express": "^4.21.0",

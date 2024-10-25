@@ -1,8 +1,8 @@
-const Model = require('./../model');
-const UserEntity = require('./entity');
-const Where = require('./../sql/where');
-const argon2 = require('argon2');
-const config = require('./../../config/app.json');
+import Model from "../model.js";
+import UserEntity from "./entity.js";
+import Where from "../sql/where.js";
+import * as argon2 from "argon2";
+import config from './../../config/app.json' with { type: "json" };
 
 class UserModel extends Model {
     constructor() {
@@ -57,5 +57,4 @@ class UserModel extends Model {
         return await argon2.hash(password, { salt: Buffer.from(config.salt) });
     }
 }
-
-module.exports = UserModel;
+export default UserModel;

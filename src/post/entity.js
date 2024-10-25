@@ -1,9 +1,5 @@
-const Entity = require('./../entity');
-const PostModel = require('./model');
+import Entity from "../entity.js";
 
-/**
- * @property {PostModel} _model
- */
 class PostEntity extends Entity {
     /**
      * @param {PostModel} model
@@ -29,4 +25,4 @@ class PostEntity extends Entity {
     }
 }
 
-module.exports = PostEntity;
+export default PostEntity;

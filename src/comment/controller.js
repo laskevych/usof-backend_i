@@ -1,9 +1,8 @@
-const e = require("express");
-const Controller = require('./../controller');
-const CommentModel = require('./model');
-const PostModel = require('./../post/model');
-const Where = require('./../sql/where');
-const { body } = require("express-validator");
+import Controller from './../controller.js';
+import CommentModel from "./model.js";
+import PostModel from "../post/model.js";
+import Where from './../sql/where.js';
+import { body } from "express-validator";
 
 class CommentController extends Controller {
     constructor() {
@@ -81,7 +80,7 @@ class CommentController extends Controller {
                     res,
                     403,
                     {},
-                    "Only the creator of the post can choose the most useful comment."
+                    "Only the creator of the post can choose the most helpful comment."
                 );
             }
 
@@ -97,4 +96,4 @@ class CommentController extends Controller {
     }
 }
 
-module.exports = new CommentController();
+export default new CommentController();

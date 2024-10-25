@@ -1,4 +1,4 @@
-const Model = require('./../../model');
+import Model from "../../model.js";
 
 class PostFavoritesModel extends Model {
     constructor() {
@@ -14,4 +14,4 @@ class PostFavoritesModel extends Model {
     }
 }
 
-module.exports = PostFavoritesModel;
+export default PostFavoritesModel;

@@ -1,14 +1,15 @@
-const express = require('express');
-const path = require('path');
-const config = require('./config/app.json');
+import express from 'express';
+import * as path from "path";
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-const jwtMiddleware = require('./src/auth/middlewares/jwt');
-
-const userRouter = require('./src/user/routes');
-const postRouter = require('./src/post/routes');
-const categoryRouter = require('./src/category/routes');
-const commentRouter = require('./src/comment/routes');
-const authRoutes = require('./src/auth/routes');
+import * as jwtMiddleware from './src/auth/middlewares/jwt.js';
+import userRouter from './src/user/routes.js';
+import postRouter from './src/post/routes.js';
+import categoryRouter from './src/category/routes.js';
+import commentRouter from './src/comment/routes.js';
+import authRoutes from './src/auth/routes.js';
 
 const app = express();
 const PORT = 8080;
@@ -17,6 +18,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+// app.use('/admin', adminJSRouter);
 app.use('/api/auth/', jwtMiddleware.setUserByJWT, authRoutes);
 app.use('/api/posts/', jwtMiddleware.setUserByJWT, postRouter);
 app.use('/api/categories/', jwtMiddleware.setUserByJWT, categoryRouter);

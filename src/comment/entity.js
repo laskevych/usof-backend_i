@@ -1,4 +1,4 @@
-const Entity = require('./../entity');
+import Entity from "../entity.js";
 
 class CommentEntity extends Entity {
     /**
@@ -18,4 +18,4 @@ class CommentEntity extends Entity {
     }
 }
 
-module.exports = CommentEntity;
+export default CommentEntity;

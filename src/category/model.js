@@ -1,7 +1,7 @@
-const Model = require('./../model');
-const CategoryEntity = require('./entity');
-const Where = require('./../sql/where');
-const PostFavoritesModel = require("../post/favorite/model");
+import Model from "../model.js";
+import CategoryEntity from "./entity.js";
+import Where from "../sql/where.js";
+import PostFavoritesModel from "../post/favorite/model.js";
 
 class CategoryModel extends Model {
     constructor() {
@@ -17,24 +17,24 @@ class CategoryModel extends Model {
         );
     }
 
-    async getCategoriesByPostId(postId) {
-        const PostCategoryModel = require('./../post/category/model');
-        const postCategories = await (new PostCategoryModel()).getEntities([], [
-            new Where(
-                'postId',
-                '=',
-                postId
-            )
-        ]);
-
-        return this.getEntities([], [
-            new Where(
-                'id',
-                'IN',
-                postCategories.map(postCategory => postCategory.categoryId)
-            )
-        ]);
-    }
+    // async getCategoriesByPostId(postId) {
+    //     const PostCategoryModel = require('./../post/category/model');
+    //     const postCategories = await (new PostCategoryModel()).getEntities([], [
+    //         new Where(
+    //             'postId',
+    //             '=',
+    //             postId
+    //         )
+    //     ]);
+    //
+    //     return this.getEntities([], [
+    //         new Where(
+    //             'id',
+    //             'IN',
+    //             postCategories.map(postCategory => postCategory.categoryId)
+    //         )
+    //     ]);
+    // }
 }
 
-module.exports = CategoryModel;
+export default CategoryModel;

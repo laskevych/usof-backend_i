@@ -1,8 +1,7 @@
-const jwt = require('jsonwebtoken');
-const config = require('../../../config/app.json');
-const UserModel = require('../../user/model');
-const e = require("express");
+import jwt from 'jsonwebtoken';
+import config from './../../../config/app.json' with { type: "json" };
 
+import UserModel from "../../user/model.js";
 
 function invalidCredentials(req, res, message = "Invalid token.") {
     return res.status(401).json({
@@ -17,7 +16,7 @@ function invalidCredentials(req, res, message = "Invalid token.") {
  * @param {e.NextFunction} next
  * @return {Promise<*>}
  */
-exports.setUserByJWT = async (req, res, next) => {
+export async function setUserByJWT(req, res, next) {
     // req.user = undefined;
     // const model = new UserModel();
     // req.user = await model.getEntityById(-1);
@@ -44,4 +43,4 @@ exports.setUserByJWT = async (req, res, next) => {
     }
 
     next();
-};
+}

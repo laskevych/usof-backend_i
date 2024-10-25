@@ -1,7 +1,7 @@
-const Model = require('./../../model');
-const Category = require('./../../category/entity');
-const CategoryModel = require('./../../category/model');
-const Where = require('./../../sql/where');
+import Model from "./../../model.js";
+import CategoryEntity from "../../category/entity.js";
+import CategoryModel from "../../category/model.js";
+import Where from "../../sql/where.js";
 
 class PostCategoryModel extends Model {
     constructor() {
@@ -18,7 +18,7 @@ class PostCategoryModel extends Model {
 
     /**
      * @param {number} postId
-     * @return {Promise<Category[]>}
+     * @return {Promise<CategoryEntity[]>}
      */
     async getCategoriesByPostId(postId) {
         const postCategories = await this.getEntities([], [
@@ -35,4 +35,4 @@ class PostCategoryModel extends Model {
     }
 }
 
-module.exports = PostCategoryModel;
+export default PostCategoryModel;
