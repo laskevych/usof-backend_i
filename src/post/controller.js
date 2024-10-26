@@ -2,6 +2,7 @@ import Controller from "../controller.js";
 import PostModel from "./model.js";
 import Where from "../sql/where.js";
 import { body } from "express-validator";
+import PostFavoritesModel from "./favorite/model.js";
 
 class PostController extends Controller {
     constructor() {
@@ -115,7 +116,20 @@ class PostController extends Controller {
      * @return {Promise<e.Response>}
      */
     async getFavoritePosts(req, res, next) {
-        //TODO
+        try {
+            if (!req?.user) {
+                return this._returnAccessDenied(res);
+            }
+
+            const model = new PostFavoritesModel();
+            const postIds = await model.getPostIdsByUserId(req.user.id);
+
+            req.query.id = postIds.join(',');
+
+            return this.getAll(req, res, next);
+        } catch (error) {
+            next(error);
+        }
     }
 }
 

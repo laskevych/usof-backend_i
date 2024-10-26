@@ -1,4 +1,5 @@
 import Model from "../../model.js";
+import Where from "../../sql/where.js";
 
 class PostFavoritesModel extends Model {
     constructor() {
@@ -11,6 +12,18 @@ class PostFavoritesModel extends Model {
                 'creationAt'
             ]
         );
+    }
+
+    /**
+     * @param {number} userId
+     * @return {Promise<*[number]>}
+     */
+    async getPostIdsByUserId(userId) {
+        const entities = await this.getEntities([], [
+            new Where(this._creationByRelationFieldName, '=', userId)
+        ]);
+
+        return entities.map(record => record.postId);
     }
 }
 

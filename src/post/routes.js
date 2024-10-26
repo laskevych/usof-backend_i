@@ -5,6 +5,22 @@ import postController from './controller.js';
 import categoryController from './../category/controller.js';
 import commentController from './../comment/controller.js';
 import likeController from './../like/controller.js';
+import postFavoriteController from './favorite/controller.js';
+
+router.get('/favorite/',
+    postController.setAccessPolicy.bind(postController),
+    postController.getFavoritePosts.bind(postController)
+);
+
+router.post('/:postId/favorite/',
+    postFavoriteController.setAccessPolicy.bind(postFavoriteController),
+    postFavoriteController.createFavoriteByPostId.bind(postFavoriteController)
+);
+
+router.delete('/:postId/favorite/:id/',
+    postFavoriteController.setAccessPolicy.bind(postFavoriteController),
+    postFavoriteController.delete.bind(postFavoriteController)
+);
 
 router.get('/',
     postController.setAccessPolicy.bind(postController),
