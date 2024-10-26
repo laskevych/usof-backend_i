@@ -1,6 +1,5 @@
 import jwt from 'jsonwebtoken';
 import * as argon2 from "argon2";
-import config from './../../config/app.json' with { type: "json" };
 import UserController from "../user/controller.js";
 import * as mailer from "../../mailer/service.js";
 
@@ -44,11 +43,11 @@ class AuthController extends UserController {
      * @param {string} expiresIn
      * @return {string}
      */
-    createAccessToken(data, expiresIn = undefined) {
+    createAccessToken(data, expiresIn = '7d') {
         return jwt.sign(
             data,
-            config.jwtSecret,
-            { expiresIn: expiresIn ?? config.jwtExpiresIn }
+            process.env.APP_SECRET,
+            { expiresIn }
         );
     }
 
@@ -85,7 +84,7 @@ class AuthController extends UserController {
     async confirmEmail(req, res, next) {
         try {
             try {
-                const decoded = jwt.verify(req.params.token, config.jwtSecret);
+                const decoded = jwt.verify(req.params.token, process.env.APP_SECRET);
                 const user = await this._model.getByEmail(decoded.userEmail);
 
                 if (!user) {
@@ -228,7 +227,7 @@ class AuthController extends UserController {
     async confirmPasswordReset(req, res, next) {
         try {
             try {
-                const tokenData = jwt.verify(req.params.token, config.jwtSecret);
+                const tokenData = jwt.verify(req.params.token, process.env.APP_SECRET);
                 console.log(tokenData);
                 const user = await this._model.getByEmail(tokenData.userEmail);
                 if (!user) {

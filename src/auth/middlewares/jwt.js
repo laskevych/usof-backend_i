@@ -1,5 +1,4 @@
 import jwt from 'jsonwebtoken';
-import config from './../../../config/app.json' with { type: "json" };
 
 import UserModel from "../../user/model.js";
 
@@ -26,7 +25,7 @@ export async function setUserByJWT(req, res, next) {
     const bearerToken = authTokenHeader && authTokenHeader.split(' ')[1];
     if (bearerToken) {
         try {
-            const userData = await jwt.verify(bearerToken, config.jwtSecret);
+            const userData = await jwt.verify(bearerToken, process.env.APP_SECRET);
             const model = new UserModel();
             if (userData?.id) {
                 const user = await model.getEntityById(userData.id);

@@ -1,9 +1,5 @@
 # DROP DATABASE IF EXISTS usof_irepeshko;
 # CREATE DATABASE usof_irepeshko;
-#
-# DROP USER IF EXISTS 'irepeshko'@'%';
-# CREATE USER 'irepeshko'@'%' IDENTIFIED BY 'securepass';
-# GRANT ALL PRIVILEGES ON *.* TO 'irepeshko'@'%' WITH GRANT OPTION;
 
 DROP TABLE IF EXISTS `likes`;
 DROP TABLE IF EXISTS `comments`;

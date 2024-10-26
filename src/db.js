@@ -1,7 +1,14 @@
-import config from './../config/app.json' with { type: "json" };
 import mysql from 'mysql2/promise';
-
-const connection = mysql.createPool(config.database);
+const connection = mysql.createPool({
+    host: process.env.DATABASE_HOST || 'localhost',
+    port: process.env.DATABASE_PORT || 3306,
+    database: process.env.DATABASE_NAME || 'usof_irepeshko',
+    user: process.env.DATABASE_USER,
+    password: process.env.DATABASE_PASSWORD,
+    connectionLimit: 10,
+    waitForConnections: true,
+    queueLimit: 0
+});
 
 const originalQuery = connection.query;
 connection.query = async function (...args) {

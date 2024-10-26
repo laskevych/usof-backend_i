@@ -2,7 +2,6 @@ import Model from "../model.js";
 import UserEntity from "./entity.js";
 import Where from "../sql/where.js";
 import * as argon2 from "argon2";
-import config from './../../config/app.json' with { type: "json" };
 
 class UserModel extends Model {
     constructor() {
@@ -54,7 +53,7 @@ class UserModel extends Model {
      * @return {Promise<String>}
      */
     async createPassword(password) {
-        return await argon2.hash(password, { salt: Buffer.from(config.salt) });
+        return await argon2.hash(password, { salt: Buffer.from(process.env.APP_SECRET) });
     }
 }
 export default UserModel;

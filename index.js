@@ -1,3 +1,28 @@
+const REQUIRED_ENV_VARIABLES = [
+    'APP_SECRET',
+    'DATABASE_HOST',
+    'DATABASE_PORT',
+    'DATABASE_USER',
+    'DATABASE_PASSWORD',
+    'DATABASE_NAME'
+];
+
+function isEnvironmentVariablesExist() {
+    let result = true;
+    REQUIRED_ENV_VARIABLES.some(item => {
+        if (!process.env.hasOwnProperty(item)) {
+            result = false;
+        }
+    });
+
+    return result;
+}
+
+if (!isEnvironmentVariablesExist()) {
+    console.error(`Please fill in the correct environment variables [ ${REQUIRED_ENV_VARIABLES.join(', ')} ] in the .env file.`);
+    process.exit(1);
+}
+
 import express from 'express';
 import * as path from "path";
 import { fileURLToPath } from 'url';

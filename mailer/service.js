@@ -1,4 +1,3 @@
-import config from './../config/app.json' with { type: "json" };
 import nodemailer from 'nodemailer'
 import ejs from 'ejs';
 import * as path from "path";
@@ -14,7 +13,15 @@ import * as path from "path";
 async function send(email, subject, htmlTemplate, dataForTemplate) {
     try {
         const airplane = nodemailer.createTransport(
-            { ...config.mailer }
+            {
+                host: "smtp.ethereal.email",
+                port: 587,
+                secure: false,
+                auth: {
+                    user: process.env.ETHEREAL_MAILER_LOGIN || 'ricky43@ethereal.email',
+                    pass: process.env.ETHEREAL_MAILER_PASSWORD || '4e1zbM2nxsMu2d823E'
+                }
+            }
         );
 
         const html = await ejs.renderFile(
