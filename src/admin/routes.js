@@ -1,0 +1,57 @@
+import AdminJS from 'adminjs'
+import Plugin from '@adminjs/express'
+import Adapter, { Database, Resource } from '@adminjs/sql'
+import UserModel from "../user/model.js";
+
+AdminJS.registerAdapter({
+    Database,
+    Resource,
+});
+
+
+const db = await new Adapter('mysql2', {
+    database: process.env.DATABASE_NAME || 'usof_irepeshko',
+    user: process.env.DATABASE_USER,
+    password: process.env.DATABASE_PASSWORD,
+    host: process.env.DATABASE_HOST || 'localhost',
+    port: process.env.DATABASE_PORT || 3306
+}).init();
+
+const routes = new AdminJS({
+    databases: [db],
+    rootPath: '/admin'
+});
+
+const authenticate = async (email, password) => {
+    const model = new UserModel();
+    const user = await model.getByEmail(email);
+
+    if (!user || !user.isAdmin()) {
+        return null;
+    }
+
+    const isValidPassword = await model.isValidPassword(password, user.password);
+    if (!isValidPassword) {
+        return null;
+    }
+
+    return Promise.resolve({ email, password });
+};
+
+const router = Plugin.buildAuthenticatedRouter(
+    routes,
+    {
+        authenticate,
+        cookieName: 'adminjs',
+        cookiePassword: process.env.APP_SECRET,
+    },
+    null,
+    {
+        resave: true,
+        saveUninitialized: true,
+    }
+);
+
+routes.watch();
+
+export default router;

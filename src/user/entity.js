@@ -9,6 +9,10 @@ class UserEntity extends Entity {
         super(model, data);
     }
 
+    isAdmin() {
+        return this.role === 'admin';
+    }
+
     toJSON(allowedAllFields = false) {
         const result = super.toJSON(allowedAllFields);
         delete result?.password;

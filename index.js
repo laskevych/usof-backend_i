@@ -35,15 +35,16 @@ import postRouter from './src/post/routes.js';
 import categoryRouter from './src/category/routes.js';
 import commentRouter from './src/comment/routes.js';
 import authRoutes from './src/auth/routes.js';
+import adminRoutes from './src/admin/routes.js';
 
 const app = express();
 const PORT = 8080;
 
-app.use(express.json());
+app.use('/admin', adminRoutes);
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
-
-// app.use('/admin', adminJSRouter);
+app.use(express.json());
 app.use('/api/auth/', jwtMiddleware.setUserByJWT, authRoutes);
 app.use('/api/posts/', jwtMiddleware.setUserByJWT, postRouter);
 app.use('/api/categories/', jwtMiddleware.setUserByJWT, categoryRouter);
@@ -52,5 +53,5 @@ app.use('/api/users/', jwtMiddleware.setUserByJWT, userRouter);
 
 
 app.listen(PORT, () => {
-    console.log(`Server: http://localhost:${PORT}`);
+    console.log(`Server: http://localhost:${PORT}/admin/`);
 });
