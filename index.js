@@ -7,6 +7,15 @@ const REQUIRED_ENV_VARIABLES = [
     'DATABASE_NAME'
 ];
 
+function handlerOfServerError(err, req, res, next) {
+    console.error(err.stack);
+
+    res.status(500).json({
+        message: 'Internal Server Error',
+        error: err.message
+    });
+}
+
 function isEnvironmentVariablesExist() {
     let result = true;
     REQUIRED_ENV_VARIABLES.some(item => {
@@ -54,6 +63,14 @@ app.use('/api/posts/', jwtMiddleware.setUserByJWT, postRouter);
 app.use('/api/categories/', jwtMiddleware.setUserByJWT, categoryRouter);
 app.use('/api/comments/', jwtMiddleware.setUserByJWT, commentRouter);
 app.use('/api/users/', jwtMiddleware.setUserByJWT, userRouter);
+
+app.all('*', (req, res) => {
+    return res.status(404).json({
+        message: "Endpoint not found."
+    });
+});
+
+app.use(handlerOfServerError);
 
 
 app.listen(PORT, () => {
