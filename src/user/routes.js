@@ -21,7 +21,7 @@ router.post('/',
 
 router.patch('/:id/',
     controller.setAccessPolicy.bind(controller),
-    controller.validateBody.bind(controller),
+    controller.validateUpdate.bind(controller),
     controller.update.bind(controller)
 );
 

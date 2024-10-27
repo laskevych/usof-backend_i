@@ -1,6 +1,9 @@
 import nodemailer from 'nodemailer'
 import ejs from 'ejs';
 import * as path from "path";
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 /**
  * @param {string} email

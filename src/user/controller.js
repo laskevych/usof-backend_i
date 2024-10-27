@@ -19,7 +19,7 @@ class UserController extends Controller {
                     .isEmail().withMessage('Please enter a valid email address.'),
 
                 body('fullName')
-                    .notEmpty().withMessage('Full name is required.')
+                    .optional()
                     .isLength({ min: 3 }).withMessage('Full name should be at least 3 characters long.'),
 
                 body('password')
@@ -37,12 +37,40 @@ class UserController extends Controller {
             ]
         );
 
+        this._validationRulesForUpdate = [
+            body('fullName')
+                .optional()
+                .isLength({ min: 3 }).withMessage('Full name should be at least 3 characters long.'),
+
+            body('password')
+                .optional()
+                .isStrongPassword({ minLength: 5 })
+                .withMessage("Password should be at least 5 characters long and include an uppercase letter, a symbol, and a number."),
+
+            body('password_confirm')
+                .optional()
+                .custom((value, { req }) => {
+                    if (value !== req.body.password) {
+                        throw new Error('Password confirmation does not match the password.');
+                    }
+                    return true;
+                })
+        ];
+
         this._accessPolicies.admin.setUpdate(this._model._fields.filter(field => !['email', 'login', 'rating'].includes(field)));
 
         this._accessPolicies.user
             .removeCreate()
-            .removeRead()
-            .removeUpdate()
+            .setRead([], [])
+            .setUpdate(
+                this._model._fields.filter(field => !['email', 'login', 'rating', 'isVerified', 'role', 'creationAt'].includes(field)), [
+                    {
+                        field: 'id',
+                        operator: '=',
+                        value: null
+                    }
+                ]
+            )
             .removeDelete();
     }
 
@@ -91,6 +119,35 @@ class UserController extends Controller {
         } catch (error) {
             next(error);
         }
+    }
+
+    /**
+     * @param {e.Request} req
+     * @param {e.Response} res
+     * @param {e.NextFunction} next
+     * @return {Promise<e.Response>}
+     */
+    async validateUpdate(req, res, next) {
+        return await this.validateBody(req, res, next,
+            this._validationRulesForUpdate
+        );
+    }
+
+    async update(req, res, next) {
+        if (req?.user?.role === 'user' && req?.accessOperation) {
+            req.accessOperation.filter.forEach(item => {
+                if (item.field === 'id') {
+                    item.value = req.user.id
+                }
+            });
+        }
+
+        if (req?.body?.password) {
+            req.body.password = await this._model.createPassword(req.body.password);
+        }
+
+
+        return super.update(req, res, next);
     }
 }
 

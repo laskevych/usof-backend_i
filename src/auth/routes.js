@@ -16,8 +16,7 @@ router.post('/login',
     authController.login.bind(authController)
 );
 
-router.post('/confirm-email/:token/',
-    authController.setAccessPolicy.bind(authController),
+router.get('/confirm-email/:token/',
     authController.checkAccess.bind(authController),
     authController.confirmEmail.bind(authController)
 );

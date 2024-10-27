@@ -82,7 +82,7 @@ class Controller {
      */
     async _returnResponse(res, statusCode, additionalData = {}, message = undefined) {
         return res.status(statusCode).json({
-            ...{message, statusCode},
+            ...{message},
             ...additionalData
         });
     }

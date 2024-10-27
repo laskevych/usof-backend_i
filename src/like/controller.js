@@ -1,6 +1,7 @@
 import Controller from './../controller.js';
 import LikeModel from "./model.js";
 import PostModel from "../post/model.js";
+import CommentModel from "../comment/model.js";
 import Where from "../sql/where.js";
 import { body } from "express-validator";
 
@@ -16,6 +17,33 @@ class LikeController extends Controller {
 
         this._accessPolicies.user
             .setRead();
+    }
+
+    /**
+     * @param {string} entityName
+     * @param {number} entityId
+     * @return {Promise<boolean>}
+     * @private
+     */
+
+    async _checkIsEntityExist(entityName, entityId) {
+        let isEntityExist = false;
+        if (entityName === 'postId') {
+            const postModel = new PostModel();
+            await postModel.recalculateLikesByPostId(entityId);
+            const post = await postModel.getEntityById(entityId);
+            if (post) {
+                isEntityExist = true;
+            }
+        } else if (entityName === 'commentId') {
+            const commentModel = new CommentModel();
+            const comment = await commentModel.getEntityById(entityId);
+            if (comment) {
+                isEntityExist = true;
+            }
+        }
+
+        return isEntityExist;
     }
 
     /**
@@ -78,6 +106,10 @@ class LikeController extends Controller {
             } else if (fields.postId) {
                 entityName = 'postId';
                 entityId = fields.postId;
+            }
+
+            if (!await this._checkIsEntityExist(entityName, entityId)) {
+                return this._returnNotFound(res);
             }
 
             let likeStatus;

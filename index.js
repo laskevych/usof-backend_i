@@ -25,6 +25,9 @@ if (!isEnvironmentVariablesExist()) {
 
 import express from 'express';
 import * as path from "path";
+import swaggerUI from 'swagger-ui-express';
+import swaggerDocs from './docs/openapi.json' with { type: 'json' };
+
 import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -41,6 +44,7 @@ const app = express();
 const PORT = 8080;
 
 app.use('/admin', adminRoutes);
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -53,5 +57,6 @@ app.use('/api/users/', jwtMiddleware.setUserByJWT, userRouter);
 
 
 app.listen(PORT, () => {
-    console.log(`Server: http://localhost:${PORT}/admin/`);
+    console.log(`✔ Admin: http://localhost:${PORT}/admin/`);
+    console.log(`✔ API Docs: http://localhost:${PORT}/api-docs/`);
 });

@@ -47,11 +47,11 @@ const upload = multer({
 const uploadMiddleware = (req, res, next) => {
     upload(req, res, (err) => {
         if (err) {
-            return res.status(400).json({ statusCode: res.statusCode, message: err.message });
+            return res.status(400).json({ message: err.message });
         }
 
         if (!req.file) {
-            return res.status(400).json({ statusCode: res.statusCode, message: 'File not found' });
+            return res.status(400).json({ message: 'File not found' });
         }
 
         req.body.profilePicture = req.file.filename;
