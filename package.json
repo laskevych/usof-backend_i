@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "start": "node --env-file=.env index.js",
-    "start:dev": "nodemon --env-file=.env index.js"
+    "start:dev": "nodemon --env-file=.env index.js",
+    "start:faker": "node --env-file=.env config/fakeData.js"
   },
   "dependencies": {
     "@adminjs/express": "^6.1.0",
