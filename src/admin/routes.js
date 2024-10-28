@@ -19,6 +19,32 @@ const db = await new Adapter('mysql2', {
 
 const routes = new AdminJS({
     databases: [db],
+    resources: [
+        {
+            resource: db.resourceMap.get('posts'),
+            options: {
+                properties: {
+                    content: {
+                        isVisible: { edit: false, show: true, list: true, filter: true },
+                        isDisabled: true,
+                        isEditable: false,
+                    },
+                },
+            },
+        },
+        {
+            resource: db.resourceMap.get('comments'),
+            options: {
+                properties: {
+                    content: {
+                        isVisible: { edit: false, show: true, list: true, filter: true },
+                        isDisabled: true,
+                        isEditable: false,
+                    },
+                },
+            },
+        },
+    ],
     rootPath: '/admin'
 });
 

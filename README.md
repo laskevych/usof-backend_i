@@ -31,13 +31,10 @@ The database schema is provided in the `config/db.sql` file. Run the SQL command
    DATABASE_PORT=3306
    DATABASE_USER=root
    DATABASE_PASSWORD=root
-   DATABASE_NAME=usof_irepeshko
    ```
 
-5. Run the database schema script in MySQL to set up the database:
-   ```sql
-   source config/db.sql;
-   ```
+5. Log in to your MySQL. 
+6. Copy the contents of the [config/db.sql](config/db.sql) file and execute it in MySQL. You can also execute the SQL query through the MySQL CLI. To do this, run the command `mysql -u {USER_NAME} -p < config/db.sql`. You need to provide your MySQL login and password.
 6. Start the server.
    ```bash
    npm run start
