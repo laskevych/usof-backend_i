@@ -11,7 +11,11 @@ class PostController extends Controller {
                 .notEmpty().withMessage('Title cannot be empty'),
 
             body('content')
-                .notEmpty().withMessage('Content cannot be empty')
+                .notEmpty().withMessage('Content cannot be empty'),
+
+            body('status')
+                .optional()
+                .isIn(['active', 'inactive']).withMessage('Post status should be active or inactive')
         ]);
 
         this._totalEntitiesPerPage = 10;

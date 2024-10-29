@@ -8,7 +8,11 @@ class CommentController extends Controller {
     constructor() {
         super(new CommentModel(), [
             body('content')
-                .notEmpty().withMessage('Content cannot be empty')
+                .notEmpty().withMessage('Content cannot be empty'),
+
+            body('status')
+                .optional()
+                .isIn(['active', 'inactive']).withMessage('Comment status should be active or inactive')
         ]);
 
         this._accessPolicies.user

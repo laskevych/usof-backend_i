@@ -15,6 +15,7 @@ router.get('/:id/',
 
 router.patch('/:id/',
     commentController.setAccessPolicy.bind(commentController),
+    commentController.validateBody.bind(commentController),
     commentController.update.bind(commentController)
 );
 
