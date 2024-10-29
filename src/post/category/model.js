@@ -33,6 +33,40 @@ class PostCategoryModel extends Model {
             return [];
         }
     }
+
+
+    async syncCategories(postId, categoriesIds) {
+        const postCategories = await this.getEntities([], [
+            new Where('postId', '=', postId)
+        ]);
+
+        if (categoriesIds.size === 0) {
+            for (const postCategory of postCategories) {
+                await postCategory.delete();
+            }
+        } else {
+            for (const postCategory of postCategories) {
+                if (!categoriesIds.has(postCategory.categoryId)) {
+                    await postCategory.delete();
+                } else {
+                    categoriesIds.delete(postCategory.categoryId);
+                }
+            }
+
+            const categoryModel = new CategoryModel();
+            for (const categoryId of categoriesIds) {
+                const category = await categoryModel.getEntityById(categoryId);
+                if (category) {
+                    const postCategory = this.createEntity({
+                        postId: postId,
+                        categoryId: categoryId
+                    });
+
+                    await postCategory.save();
+                }
+            }
+        }
+    }
 }
 
 export default PostCategoryModel;

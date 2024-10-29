@@ -3,6 +3,7 @@ import PostModel from "./model.js";
 import Where from "../sql/where.js";
 import { body } from "express-validator";
 import PostFavoritesModel from "./favorite/model.js";
+import PostCategoryModel from "./category/model.js";
 
 class PostController extends Controller {
     constructor() {
@@ -133,6 +134,90 @@ class PostController extends Controller {
             return this.getAll(req, res, next);
         } catch (error) {
             next(error);
+        }
+    }
+
+    /**
+     * @param {e.Request} req
+     * @param {e.Response} res
+     * @param {e.NextFunction} next
+     * @return {Promise<e.Response>}
+     */
+    async create(req, res, next) {
+        try {
+            const fields = this._prepareFields(req);
+            if (this._model._fields.includes(this._model._creationByRelationFieldName)) {
+                fields[this._model._creationByRelationFieldName] = req.user.id;
+            }
+
+            const newEntity = this._model.createEntity(fields);
+            await newEntity.save();
+
+
+            const categoryIds = new Set();
+            if (req?.body?.categories && req?.body?.categories.length > 0) {
+                req.body.categories.split(',').forEach(categoryId => {
+                    if (Number.isInteger(Number(categoryId))) {
+                        categoryIds.add(Number(categoryId));
+                    }
+                });
+            }
+
+            if (categoryIds.size > 0 && newEntity.id) {
+                const postCategoryModel = new PostCategoryModel();
+                await postCategoryModel.syncCategories(newEntity.id, categoryIds);
+            }
+
+            const post = await this._model.getEntityById(newEntity.id);
+
+            return res.status(201).json({
+                data: post.toJSON(),
+            });
+        } catch (e) {
+            next(e);
+        }
+    }
+
+    /**
+     * @param {e.Request} req
+     * @param {e.Response} res
+     * @param {e.NextFunction} next
+     * @return {Promise<express.Response>}
+     */
+    async update(req, res, next) {
+        try {
+            const entity = await this._getEntityByIdAndAccessFilter(req);
+            if (!entity) {
+                return this._returnNotFound(res);
+            }
+
+            Object.assign(entity, this._prepareFields(req));
+            await entity.save();
+
+
+            if (req?.body?.categories !== undefined) {
+                const categoryIds = new Set();
+                if (req.body.categories.length > 0) {
+                    req.body.categories.split(',').forEach(categoryId => {
+                        if (Number.isInteger(Number(categoryId))) {
+                            categoryIds.add(Number(categoryId));
+                        }
+                    });
+                }
+
+                if (entity.id) {
+                    const postCategoryModel = new PostCategoryModel();
+                    await postCategoryModel.syncCategories(entity.id, categoryIds);
+                }
+            }
+
+            const post = await this._model.getEntityById(entity.id);
+
+            return this._returnResponse(res, 200, {
+                data: post.toJSON()
+            });
+        } catch (e) {
+            next(e);
         }
     }
 }
