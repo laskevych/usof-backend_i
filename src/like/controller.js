@@ -68,20 +68,7 @@ class LikeController extends Controller {
         }
 
         if (entityAuthor) {
-            if (like.isLike()) {
-                if (isDeleted) {
-                    await entityAuthor.decreaseRating();
-                } else {
-                    await entityAuthor.increaseRating();
-                }
-            } else {
-                if (isDeleted) {
-                    await entityAuthor.increaseRating();
-
-                } else {
-                    await entityAuthor.decreaseRating();
-                }
-            }
+            await entityAuthor.recalculateRating();
         }
     }
 

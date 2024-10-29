@@ -22,28 +22,10 @@ class UserEntity extends Entity {
     /**
      * @return {Promise<void>}
      */
-    async increaseRating() {
-        return this._changeRating(1);
-    }
-
-    /**
-     * @return {Promise<void>}
-     */
-    async decreaseRating() {
-        return this._changeRating(-1);
-    }
-
-    /**
-     * @param number
-     * @return {Promise<void>}
-     * @private
-     */
-    async _changeRating(number) {
+    async recalculateRating() {
         if (this.id) {
-            this.rating += number;
+            await this._model.recalculateRatingByUserId(this.id);
         }
-
-        return this.save();
     }
 }
 

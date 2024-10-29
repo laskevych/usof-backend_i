@@ -141,4 +141,10 @@ import LikeModel from "../src/like/model.js";
     for (const post of posts) {
         await post.recalculateLikes();
     }
+
+    const userModel = new UserModel();
+    const users = await userModel.getEntities();
+    for (const user of users) {
+        await user.recalculateRating();
+    }
 })();

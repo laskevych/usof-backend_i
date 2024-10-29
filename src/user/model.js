@@ -2,6 +2,9 @@ import Model from "../model.js";
 import UserEntity from "./entity.js";
 import Where from "../sql/where.js";
 import * as argon2 from "argon2";
+import LikeModel from "../like/model.js";
+import PostModel from "../post/model.js";
+import CommentModel from "../comment/model.js";
 
 class UserModel extends Model {
     constructor() {
@@ -54,6 +57,61 @@ class UserModel extends Model {
      */
     async createPassword(password) {
         return await argon2.hash(password, { salt: Buffer.from(process.env.APP_SECRET) });
+    }
+
+    /**
+     * @param {number} userId
+     * @return {Promise<void>}
+     */
+    async recalculateRatingByUserId(userId) {
+        const user = await this.getEntityById(userId);
+        if (!user) {
+            return;
+        }
+
+        const postModel = new PostModel();
+        const commentModel = new CommentModel();
+        const likeModel = new LikeModel();
+
+        const posts = await postModel.getEntities([], [
+            new Where(postModel._creationByRelationFieldName, '=', userId)
+        ]);
+
+        const comments = await commentModel.getEntities([], [
+            new Where(commentModel._creationByRelationFieldName, '=', userId)
+        ]);
+
+        let rating = 0;
+        if (posts.length > 0) {
+            const postLikes = await likeModel.getEntities([], [
+                new Where('postId', 'IN', posts.map(post => post.id))
+            ]);
+
+            postLikes.forEach(like => {
+                if (like.isLike()) {
+                    rating++;
+                } else {
+                    rating--;
+                }
+            });
+        }
+
+        if (comments.length > 0) {
+            const commentLikes = await likeModel.getEntities([], [
+                new Where('commentId', 'IN', comments.map(comment => comment.id))
+            ]);
+
+            commentLikes.forEach(like => {
+                if (like.isLike()) {
+                    rating++;
+                } else {
+                    rating--;
+                }
+            });
+        }
+
+        user.rating = rating;
+        await user.save();
     }
 }
 export default UserModel;
