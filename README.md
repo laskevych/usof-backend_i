@@ -40,6 +40,17 @@ The database schema is provided in the `config/db.sql` file. Run the SQL command
    npm run start
    ```
 
+## Mailing Service
+[Ethereal](https://ethereal.email/) is a fake SMTP service, mostly aimed at Nodemailer and EmailEngine users (but not limited to). It's a completely free anti-transactional email service where messages never get delivered.
+To view the letter that the user will receive, you need to log in to this service using a test login and password.
+
+```text
+login: ricky43@ethereal.email
+password: 4e1zbM2nxsMu2d823E
+```
+
+![](docs/ethereal.png)
+
 ## REST API documentation
 The documentation of all available endpoints can be found [http://localhost:8080/api-docs/](http://localhost:8080/api-docs/). The [Swagger](https://swagger.io/) library is used.
 
