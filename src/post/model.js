@@ -3,9 +3,9 @@ import PostEntity from "./entity.js";
 import PostCategoryModel from "./category/model.js";
 import PostFavoritesModel from "./favorite/model.js";
 import LikeModel from "../like/model.js";
-import UserEntity from "../user/entity.js";
 import UserModel from "../user/model.js";
 import Where from "../sql/where.js";
+import CommentModel from "../comment/model.js";
 
 class PostModel extends Model {
     /**
@@ -103,6 +103,16 @@ class PostModel extends Model {
         }
 
         return super._getWhere(where);
+    }
+
+    /**
+     * @param {number} postId
+     * @return {Promise<number>}
+     */
+    async getNumberOfCommentsByPostId(postId) {
+        const commentModel = new CommentModel();
+        const comments = await commentModel.getCommentsByPostId(postId);
+        return comments.length;
     }
 }
 

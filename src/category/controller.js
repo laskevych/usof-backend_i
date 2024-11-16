@@ -18,6 +18,9 @@ class CategoryController extends Controller {
             .setRead()
             .removeUpdate()
             .removeDelete();
+
+        this._accessPolicies.guest
+            .setRead();
     }
 
     /**

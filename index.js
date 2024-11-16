@@ -34,6 +34,7 @@ if (!isEnvironmentVariablesExist()) {
 
 import express from 'express';
 import * as path from "path";
+import cors from 'cors';
 import swaggerUI from 'swagger-ui-express';
 import swaggerDocs from './docs/openapi.json' with { type: 'json' };
 
@@ -58,6 +59,7 @@ app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
+app.use(cors());
 app.use('/api/auth/', jwtMiddleware.setUserByJWT, authRoutes);
 app.use('/api/posts/', jwtMiddleware.setUserByJWT, postRouter);
 app.use('/api/categories/', jwtMiddleware.setUserByJWT, categoryRouter);

@@ -41,6 +41,28 @@ const routes = new AdminJS({
                         isDisabled: true,
                         isEditable: false,
                     },
+                    rating: {
+                        isVisible: { edit: false, show: true, list: true, filter: true },
+                        isDisabled: true,
+                        isEditable: false,
+                    },
+                },
+            },
+        },
+        {
+            resource: db.resourceMap.get('users'),
+            options: {
+                properties: {
+                    password: {
+                        isVisible: { edit: false, show: false, list: false, filter: false },
+                        isDisabled: true,
+                        isEditable: false,
+                    },
+                    profilePicture: {
+                        isVisible: { edit: false, show: false, list: false, filter: false },
+                        isDisabled: true,
+                        isEditable: false,
+                    },
                 },
             },
         },

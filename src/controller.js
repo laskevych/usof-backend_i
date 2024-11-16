@@ -181,8 +181,10 @@ class Controller {
                 fields[this._model._creationByRelationFieldName] = req.user.id;
             }
 
-            const newEntity = this._model.createEntity(fields);
+            let newEntity = this._model.createEntity(fields);
             await newEntity.save();
+
+            newEntity = await this._model.getEntityById(newEntity.id);
 
             return res.status(201).json({
                 data: newEntity.toJSON(),

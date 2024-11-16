@@ -1,5 +1,6 @@
 import Controller from './../../controller.js';
 import PostFavoritesModel from "./model.js";
+import Where from "../../sql/where.js";
 
 class PostFavoriteController extends Controller {
     constructor() {
@@ -32,6 +33,36 @@ class PostFavoriteController extends Controller {
             return this._returnResponse(res, 201, {
                 data: newEntity.toJSON()
             });
+        } catch (e) {
+            next(e);
+        }
+    }
+
+    /**
+     * @param {e.Request} req
+     * @param {e.Response} res
+     * @param {e.NextFunction} next
+     * @return {Promise<Response>}
+     */
+    async deleteFavoriteByPostId(req, res, next) {
+        try {
+            let filters = [
+                new Where(
+                    'postId',
+                    '=',
+                    Number(req.params.postId)
+                )
+            ];
+
+            filters = [...req?.accessOperation?.filter, ...filters];
+            const postFavorite = await this._model.getEntities([], filters, 'id', 1);
+            if (!postFavorite) {
+                return this._returnNotFound(res);
+            }
+
+            await postFavorite.delete();
+
+            return this._returnResponse(res, 200);
         } catch (e) {
             next(e);
         }

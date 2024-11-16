@@ -17,6 +17,9 @@ class LikeController extends Controller {
 
         this._accessPolicies.user
             .setRead();
+
+        this._accessPolicies.guest
+            .setRead();
     }
 
     /**

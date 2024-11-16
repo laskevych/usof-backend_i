@@ -42,7 +42,7 @@ class PostController extends Controller {
      */
     _prepareSort(req) {
         const allowedSort = ['likes', 'creationAt'];
-        let sortBy = 'id';
+        let sortBy = 'creationAt DESC';
         if (req.query && req.query.hasOwnProperty('sortBy')) {
             const sortParts = req.query.sortBy.split('-');
             if (!allowedSort.includes(sortParts[0])) {
@@ -67,7 +67,7 @@ class PostController extends Controller {
      */
     _prepareFilters(req) {
         const filter = [];
-        const allowedFilter = ['id', 'status', 'showOnHomepage', 'categories', 'creationAtStart', 'creationAtEnd'];
+        const allowedFilter = ['id', 'status', 'showOnHomepage', 'categories', 'creationAtStart', 'creationAtEnd', 'creationById'];
         Object.keys(req.query).forEach(fieldName => {
             if (allowedFilter.includes(fieldName) && !filter.hasOwnProperty(fieldName)) {
                 let field, operator;
@@ -122,15 +122,26 @@ class PostController extends Controller {
      */
     async getFavoritePosts(req, res, next) {
         try {
-            if (!req?.user) {
-                return this._returnAccessDenied(res);
-            }
-
             const model = new PostFavoritesModel();
-            const postIds = await model.getPostIdsByUserId(req.user.id);
+            const postIds = await model.getPostIdsByUserId(req?.params?.userId);
 
             req.query.id = postIds.join(',');
 
+            return this.getAll(req, res, next);
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    /**
+     * @param {e.Request} req
+     * @param {e.Response} res
+     * @param {e.NextFunction} next
+     * @return {Promise<e.Response>}
+     */
+    async getUserPosts(req, res, next) {
+        try {
+            req.query.creationById = req.params.userId;
             return this.getAll(req, res, next);
         } catch (error) {
             next(error);

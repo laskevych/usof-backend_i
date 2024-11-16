@@ -1,4 +1,4 @@
-# USOF Backend API
+# Tech_Cloud API
 
 ## Short Description
 This project is a backend API built with Express.js for a platform similar to Stack Overflow, named **USOF**. The API allows users to register, log in, post questions, add comments, like/dislike posts, and manage other interactions.
@@ -34,8 +34,9 @@ The database schema is provided in the `config/db.sql` file. Run the SQL command
    ```
 
 5. Log in to your MySQL. 
-6. Copy the contents of the [config/db.sql](config/db.sql) file and execute it in MySQL. You can also execute the SQL query through the MySQL CLI. To do this, run the command `mysql -u {USER_NAME} -p < config/db.sql`. You need to provide your MySQL login and password.
-6. Start the server.
+6. Copy the contents of the [config/schema.sql](config/schema.sql) file and execute it in MySQL. You can also execute the SQL query through the MySQL CLI. To do this, run the command `mysql -u {USER_NAME} -p < config/db.sql`. You need to provide your MySQL login and password.
+7. Apply similar steps as in **step 6**, but use the data file [config/data.sql](config/data.sql).
+8. Start the server.
    ```bash
    npm run start
    ```

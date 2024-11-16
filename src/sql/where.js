@@ -34,6 +34,8 @@ class Where {
             ).join(', ')})`;
         } else if(Number.isInteger(this.value)) {
             value = this.value;
+        } else if(this.value === null) {
+            value = this.value;
         } else {
             value = `"${this.value}"`;
         }

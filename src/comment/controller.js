@@ -17,7 +17,7 @@ class CommentController extends Controller {
 
         this._accessPolicies.user
             .setRead()
-            .setUpdate(['status', 'isHelpful'], [ { field: this._model._creationByRelationFieldName, operator: '=', value: '' } ]);
+            .setUpdate(['content', 'status', 'isHelpful'], [ { field: this._model._creationByRelationFieldName, operator: '=', value: '' } ]);
 
         this._accessPolicies.guest
             .setRead();
@@ -40,6 +40,17 @@ class CommentController extends Controller {
      * @param {e.NextFunction} next
      * @return {Promise<e.Response>}
      */
+    async createCommentByCommentId(req, res, next) {
+        req.body.commentId = req.params.commentId;
+        return this.create(req, res, next);
+    }
+
+    /**
+     * @param {e.Request} req
+     * @param {e.Response} res
+     * @param {e.NextFunction} next
+     * @return {Promise<e.Response>}
+     */
     async getCommentsByPostId(req, res, next) {
         req.query.postId = req.params.postId;
         return this.getAll(req, res, next);
@@ -53,7 +64,12 @@ class CommentController extends Controller {
         const allowedFilter = ['postId', 'creationById'];
         Object.keys(req.query).forEach(fieldName => {
             if (allowedFilter.includes(fieldName) && !filter.hasOwnProperty(fieldName)) {
-                filter.push(new Where(fieldName, '=', req.query[fieldName]));
+                if (fieldName === 'postId') {
+                    filter.push(new Where(fieldName, '=', req.query[fieldName]));
+                    filter.push(new Where('commentId', 'IS', null));
+                } else {
+                    filter.push(new Where(fieldName, '=', req.query[fieldName]));
+                }
             }
         });
 
@@ -97,6 +113,10 @@ class CommentController extends Controller {
         } catch (e) {
             next(e);
         }
+    }
+
+    _prepareSort(req) {
+        return 'isHelpful DESC, id DESC';
     }
 }
 

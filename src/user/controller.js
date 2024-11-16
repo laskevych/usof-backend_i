@@ -72,6 +72,9 @@ class UserController extends Controller {
                 ]
             )
             .removeDelete();
+
+        this._accessPolicies.guest
+            .setRead();
     }
 
     /**

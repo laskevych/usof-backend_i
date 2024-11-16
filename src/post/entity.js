@@ -8,7 +8,7 @@ class PostEntity extends Entity {
     constructor(model, data = {}) {
         super(model, data);
 
-        this._publicFields.push('author', 'categories');
+        this._publicFields.push('author', 'categories', 'numberOfComments');
     }
 
     async recalculateLikes() {
@@ -20,7 +20,8 @@ class PostEntity extends Entity {
     _getRelationFields() {
         return {
             author: async () => await this._model.getAuthorById(this.creationById),
-            categories: async () => await this._model.getCategoriesByPostId(this.id)
+            categories: async () => await this._model.getCategoriesByPostId(this.id),
+            numberOfComments: async () => await this._model.getNumberOfCommentsByPostId(this.id)
         };
     }
 }

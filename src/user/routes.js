@@ -1,5 +1,6 @@
 import express from "express";
 import UserController from "./controller.js";
+import postController from "./../post/controller.js";
 import uploadMiddleware from "./middlewares/profilePictureUploader.js";
 const router = express.Router();
 const controller = new UserController();
@@ -36,6 +37,16 @@ router.patch('/:id/avatar/',
 router.delete('/:id/',
     controller.setAccessPolicy.bind(controller),
     controller.delete.bind(controller)
+);
+
+router.get('/:userId/posts/',
+    postController.setAccessPolicy.bind(postController),
+    postController.getUserPosts.bind(postController)
+);
+
+router.get('/:userId/favorite/',
+    postController.setAccessPolicy.bind(postController),
+    postController.getFavoritePosts.bind(postController)
 );
 
 export default router;

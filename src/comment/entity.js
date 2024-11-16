@@ -8,12 +8,13 @@ class CommentEntity extends Entity {
     constructor(model, data = {}) {
         super(model, data);
 
-        this._publicFields.push('author');
+        this._publicFields.push('author', 'comments');
     }
 
     _getRelationFields() {
         return {
-            author: async () => await this._model.getAuthorById(this.creationById)
+            author: async () => await this._model.getAuthorById(this.creationById),
+            comments: async () => await this._model.getSubCommentsByCommentId(this.id),
         };
     }
 }

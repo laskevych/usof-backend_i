@@ -158,7 +158,7 @@ class AuthController extends UserController {
                 role: user.role
             });
 
-            return this._returnResponse(res, 200, { accessToken }, 'Login success')
+            return this._returnResponse(res, 200, { accessToken, data: user.toJSON() }, 'Login success')
 
         } catch (e) {
             next(e);
