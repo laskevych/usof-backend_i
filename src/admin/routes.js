@@ -10,7 +10,7 @@ AdminJS.registerAdapter({
 
 
 const db = await new Adapter('mysql2', {
-    database: process.env.DATABASE_NAME || 'usof_irepeshko',
+    database: process.env.DATABASE_NAME || 'TechCloud',
     user: process.env.DATABASE_USER,
     password: process.env.DATABASE_PASSWORD,
     host: process.env.DATABASE_HOST || 'localhost',
