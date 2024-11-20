@@ -116,7 +116,7 @@ class CommentController extends Controller {
     }
 
     _prepareSort(req) {
-        return 'isHelpful DESC, id DESC';
+        return 'isHelpful DESC, status, id DESC';
     }
 }
 
