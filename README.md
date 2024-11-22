@@ -80,6 +80,6 @@ All users with role `user` has password: `$User2024`. It's fake data for present
 ### Admin for presentations
    ```text
       login: admin
-      password: admin@gmail.com
+      password: admin@techcloud.com
       password: $Admin2024
    ```

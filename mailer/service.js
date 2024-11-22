@@ -33,7 +33,7 @@ async function send(email, subject, htmlTemplate, dataForTemplate) {
         );
         const result = await airplane.sendMail(
             {
-                from: "\"usof\" info@usof.test",
+                from: "\"Tech_Cloud\" info@techcloud.com",
                 to: email,
                 subject,
                 html

@@ -19,6 +19,12 @@ const db = await new Adapter('mysql2', {
 
 const routes = new AdminJS({
     databases: [db],
+    branding: {
+        companyName: '[Admin] Tech_Cloud',
+        logo: 'http://localhost:8080/app/logo.png',
+        favicon: 'http://localhost:3000/favicon.ico',
+        softwareBrothers: false,
+    },
     resources: [
         {
             resource: db.resourceMap.get('posts'),
