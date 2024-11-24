@@ -1,12 +1,11 @@
 {
   "name": "tech-cloud-backend",
-  "version": "1.0.0",
+  "version": "1.2.9",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "start": "node --env-file=.env index.js",
-    "start:dev": "nodemon --env-file=.env index.js",
-    "start:faker": "node --env-file=.env config/fakeData.js"
+    "start:dev": "nodemon --env-file=.env index.js"
   },
   "dependencies": {
     "@adminjs/express": "^6.1.0",

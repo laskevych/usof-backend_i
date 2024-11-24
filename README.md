@@ -1,7 +1,7 @@
 # Tech_Cloud API
 
 ## Short Description
-This project is a backend API built with Express.js for a platform similar to Stack Overflow, named **USOF**. The API allows users to register, log in, post questions, add comments, like/dislike posts, and manage other interactions.
+This project is a backend API built with Express.js for a platform similar to Stack Overflow, named **Tech_Cloud**. The API allows users to register, log in, post questions, add comments, like/dislike posts, and manage other interactions.
 
 ## Screenshots of Solution
 Please refer to the `docs/openapi.json` file for detailed API documentation and example screenshots of the solution in action.
@@ -14,7 +14,7 @@ Please refer to the `docs/openapi.json` file for detailed API documentation and 
 Before starting, ensure the required technologies are installed.
 
 ## Database Setup
-The database schema is provided in the `config/db.sql` file. Run the SQL commands in your MySQL database to set up the required tables.
+The database schema is provided in the `db/db.sql` file. Run the SQL commands in your MySQL database to set up the required tables.
 
 ## How to Run the Solution
 1. Clone this repository and move to the project directory.
@@ -34,8 +34,8 @@ The database schema is provided in the `config/db.sql` file. Run the SQL command
    ```
 
 5. Log in to your MySQL. 
-6. Copy the contents of the [config/schema.sql](config/schema.sql) file and execute it in MySQL. You can also execute the SQL query through the MySQL CLI. To do this, run the command `mysql -u {USER_NAME} -p < config/db.sql`. You need to provide your MySQL login and password.
-7. Apply similar steps as in **step 6**, but use the data file [config/data.sql](config/data.sql).
+6. Copy the contents of the [db/schema.sql](db/schema.sql) file and execute it in MySQL. You can also execute the SQL query through the MySQL CLI. To do this, run the command `mysql -u {USER_NAME} -p < db/db.sql`. You need to provide your MySQL login and password.
+7. Apply similar steps as in **step 6**, but use the data file [db/data.sql](db/data.sql).
 8. Start the server.
    ```bash
    npm run start

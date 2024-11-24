@@ -11,66 +11,173 @@ INSERT INTO users (id, login, fullName, password, email, isVerified, profilePict
 INSERT INTO users (id, login, fullName, password, email, isVerified, profilePicture, rating, role, creationAt) VALUES (6, 'lyda.gerhold', 'Lyda Gerhold', '$argon2id$v=19$m=65536,t=3,p=4$JFBoYW50b20kTGliZXJ0eQ$a6pSFFiYH7+HtupngVvkiWgs5wgE0BQkDMhFQ14NPws', 'lyda.gerhold@yahoo.com', 1, 'e5a789ef-01d9-406a-9bfa-5fb53dd23ac8.png', 84, 'user', '2024-10-25 20:37:46');
 INSERT INTO users (id, login, fullName, password, email, isVerified, profilePicture, rating, role, creationAt) VALUES (7, 'harmony15', 'Harmony Schaefer', '$argon2id$v=19$m=65536,t=3,p=4$JFBoYW50b20kTGliZXJ0eQ$a6pSFFiYH7+HtupngVvkiWgs5wgE0BQkDMhFQ14NPws', 'harmony.schaefer@gmail.com', 1, '50491eda-44d5-444a-a235-44b9ae720c0e.png', 38, 'user', '2024-10-24 19:43:23');
 INSERT INTO users (id, login, fullName, password, email, isVerified, profilePicture, rating, role, creationAt) VALUES (8, 'lea.goyette', 'Lea Goyette', '$argon2id$v=19$m=65536,t=3,p=4$JFBoYW50b20kTGliZXJ0eQ$a6pSFFiYH7+HtupngVvkiWgs5wgE0BQkDMhFQ14NPws', 'lea.goyette31@hotmail.com', 1, 'de084b61-164d-49fb-8ae3-f9bc73160ad4.png', 60, 'user', '2024-10-10 15:20:43');
-INSERT INTO users (id, login, fullName, password, email, isVerified, profilePicture, rating, role, creationAt) VALUES (9, 'admin', 'Admin', '$argon2id$v=19$m=65536,t=3,p=4$JFBoYW50b20kTGliZXJ0eQ$jIHvPnZNS4D/7hMnjBrhq8HbcSqHjU4/aHNYBCWQsa8', 'admin@gmail.com', 1, 'default.png', 0, 'admin', '2024-11-16 13:53:26');
+INSERT INTO users (id, login, fullName, password, email, isVerified, profilePicture, rating, role, creationAt) VALUES (9, 'admin', 'Admin', '$argon2id$v=19$m=65536,t=3,p=4$JFBoYW50b20kTGliZXJ0eQ$jIHvPnZNS4D/7hMnjBrhq8HbcSqHjU4/aHNYBCWQsa8', 'admin@com', 1, 'default.png', 0, 'admin', '2024-11-16 13:53:26');
 
 /* Posts */
-INSERT INTO posts (id, title, content, status, showOnHomepage, likes, creationById, creationAt) VALUES (1, 'How to implement multithreading in Java?', 'Truculenter maiores argentum compello calco nam culpo. Tendo cariosus terminatio demergo conculco decens suffragium assentator. Timidus quasi eius umbra cauda auctus curo creo.
-    Utique volubilis nihil amissio. Desino consequuntur earum cognomen. Ab una tabesco coadunatio suadeo infit error turbo volubilis.
-Ipsa conturbo contabesco harum. Pel vere umquam suggero atqui ante derelinquo. Ab doloribus certus bene timor deporto eum caput supra.', 'active', 1, 8, 6, '2024-07-01 06:31:10');
-INSERT INTO posts (id, title, content, status, showOnHomepage, likes, creationById, creationAt) VALUES (2, 'Itaque harum adipiscor appello sopor.', 'Vallum asper ara decet paens demo valens cedo curso. Tot architecto pax fugit armarium nobis tunc censura colo argumentum. Et vulticulus decerno.
-Uxor victoria casus. Sub tabella error demoror currus veritatis cattus tempora uredo ducimus. Dedecor suppellex vita corrumpo cura.
-Succedo tonsor ultio vulgivagus vulticulus. Quam cursim speculum cervus. Theca thesaurus blanditiis admoneo conspergo creator dolore.', 'active', 0, 8, 1, '2024-03-22 11:11:54');
-INSERT INTO posts (id, title, content, status, showOnHomepage, likes, creationById, creationAt) VALUES (3, 'Adstringo campana nostrum.', 'Clementia uberrime textilis. Aptus desipio facere tonsor combibo ventosus ars aureus altus communis. Quos valetudo dolorum.
-Trucido aeternus unus quos coaegresco territo saepe vestigium. Arma trado summisse adipisci bestia velum assentator possimus tergo cuppedia. Vulnus vomica animi tumultus.
-Vereor defero atrocitas vae adulatio denique cernuus vulgo quasi. Terror vorago super. Admitto traho speculum tutis collum tergeo constans amissio.', 'inactive', 0, 8, 7, '2024-09-23 22:18:22');
-INSERT INTO posts (id, title, content, status, showOnHomepage, likes, creationById, creationAt) VALUES (4, 'What is the difference between var, let, and const in JavaScript?', 'There are multiple ways to declare variables in JavaScript, and each serves a different purpose. I want to understand the differences and when to use each.
-Aperio perferendis suppono curatio administratio. Varietas alter praesentium corpus et. Aeger doloremque calamitas adiuvo possimus.', 'active', 0, 8, 5, '2024-06-01 11:12:06');
-INSERT INTO posts (id, title, content, status, showOnHomepage, likes, creationById, creationAt) VALUES (5, 'Solum utrimque tumultus cavus atqui pecus cribro.', 'Saepe ventus victoria cumque ait vix. Dens victus causa copia turba corroboro cognomen clamo acer voluptates. Texo cogito coniuratio.
-Canonicus centum quos bellum amor virga. Textilis tantillus votum caute deprimo uterque aiunt suppellex adulescens adsuesco. Ipsum deputo solium in despecto tergeo thema rerum.
-Caput terebro tamisium audio ter calco templum quibusdam. Demulceo verumtamen avarus laboriosam ulciscor certe adulatio cruciamentum. Excepturi arguo stabilis vinum aestas acerbitas conforto admoveo creator.', 'active', 0, 8, 6, '2024-02-20 09:44:25');
-INSERT INTO posts (id, title, content, status, showOnHomepage, likes, creationById, creationAt) VALUES (6, 'How can technology be used to maintain a healthy lifestyle?', 'Technology offers numerous tools to support a healthier lifestyle, from fitness trackers to meditation apps. These tools can help you set goals, monitor progress, and stay motivated. However, it''s essential to strike a balance to avoid over-reliance on gadgets and ensure meaningful human interaction.', 'active', 0, 8, 2, '2024-08-06 08:13:09');
-INSERT INTO posts (id, title, content, status, showOnHomepage, likes, creationById, creationAt) VALUES (7, 'How to handle asynchronous operations in JavaScript?', 'JavaScript supports asynchronous programming, but it can be confusing for beginners. I am exploring promises, async/await, and callbacks.', 'active', 1, 8, 3, '2024-09-06 20:20:07');
-INSERT INTO posts (id, title, content, status, showOnHomepage, likes, creationById, creationAt) VALUES (8, 'Aut apto vinco vito defero ocer.', 'Nobis solvo vestrum. Suus corroboro comes numquam ustulo agnitio verumtamen. Odio tametsi cubicularis venio alter.
-Corrigo suscipit pecus aestivus absum allatus. Appello aspernatur vulgivagus decens abutor ambulo. Deleo admoneo avaritia sumo aufero adimpleo terreo canis argumentum.
-Dolorum catena vita. Cornu consuasor demergo. Bestia supra desolo curo debitis viriliter commodi benevolentia.', 'inactive', 0, 7, 2, '2024-04-07 23:16:30');
-INSERT INTO posts (id, title, content, status, showOnHomepage, likes, creationById, creationAt) VALUES (9, 'What are the principles of effective UI/UX design?', 'UI/UX design is essential for product success. I want to know about principles that lead to a great user experience.', 'active', 1, 7, 7, '2024-10-03 14:58:53');
-INSERT INTO posts (id, title, content, status, showOnHomepage, likes, creationById, creationAt) VALUES (10, 'How can mindfulness improve daily productivity?', 'Mindfulness is a practice of staying present and fully engaged in the moment, which can significantly enhance focus and productivity. By reducing distractions and managing stress, mindfulness helps individuals approach tasks with clarity. Incorporating techniques like meditation or mindful breathing into your routine can lead to noticeable improvements in both personal and professional life.', 'active', 0, 7, 8, '2024-10-30 13:51:24');
-INSERT INTO posts (id, title, content, status, showOnHomepage, likes, creationById, creationAt) VALUES (11, 'How to stay motivated while learning to code?', 'Coding can be challenging, especially for beginners. I would like tips on staying motivated.
-Nobis suggero ager. Spes dolor vix spargo speciosus trepide amoveo accommodo. Doloribus aggero deputo velum ater aufero pecto viduo.', 'active', 1, 6, 2, '2024-09-28 07:20:55');
-INSERT INTO posts (id, title, content, status, showOnHomepage, likes, creationById, creationAt) VALUES (12, 'What are CSS animations and how do I create them?', 'CSS allows for adding animations, which can enhance user experience. I am interested in learning how to create them.', 'active', 0, 7, 1, '2024-02-05 06:20:30');
+INSERT INTO posts (id, title, content, status, showOnHomepage, likes, creationById, creationAt) VALUES (9, 'What are the principles of effective UI/UX design?', 'Effective UI/UX design ensures usability, accessibility, and aesthetics. Principles include:
+- **Consistency**: Maintain uniformity in design elements.
+- **Feedback**: Provide visual or auditory cues.
+- **Simplicity**: Reduce cognitive load by avoiding clutter.
+', 'active', 1, 7, 7, '2024-10-03 14:58:53');
+INSERT INTO posts (id, title, content, status, showOnHomepage, likes, creationById, creationAt) VALUES (18, 'What are the advantages of learning multiple programming languages?', 'Learning multiple programming languages enables developers to:
+- Choose the best tool for specific tasks.
+- Adapt to diverse project requirements.
+- Understand different programming paradigms (e.g., OOP, functional).
+
+| Language     | Key Advantage                    |
+|--------------|----------------------------------|
+| Python       | Versatility and simplicity       |
+| JavaScript   | Frontend and backend development |
+| C++          | High-performance applications    |
+', 'active', 1, 4, 4, '2024-08-01 06:43:39');
+INSERT INTO posts (id, title, content, status, showOnHomepage, likes, creationById, creationAt) VALUES (20, 'What are the best practices for managing memory in Java?', 'Effective memory management in Java can prevent issues like memory leaks. Key practices include:
+- Using the **try-with-resources** statement for closing resources automatically.
+- Leveraging garbage collection by nullifying unused references.
+- Profiling memory usage with tools like VisualVM.
+
+Example:
+```java
+try (BufferedReader reader = new BufferedReader(new FileReader("file.txt"))) {
+    String line;
+    while ((line = reader.readLine()) != null) {
+        System.out.println(line);
+    }
+}
+```
+', 'active', 0, 4, 3, '2024-11-05 23:23:38');
+INSERT INTO posts (id, title, content, status, showOnHomepage, likes, creationById, creationAt) VALUES (21, 'How can tech professionals maintain work-life balance?', '> “Life is a dance between making it happen and letting it happen.”
+
+Tips include:
+- Scheduling regular breaks.
+- Prioritizing family and hobbies.
+- Using tools like calendar blocking to manage tasks.
+', 'active', 1, 4, 8, '2024-08-19 14:38:20');
+INSERT INTO posts (id, title, content, status, showOnHomepage, likes, creationById, creationAt) VALUES (1, 'How to implement multithreading in Java?', 'Java supports multithreading using the **Thread** class or **Runnable** interface.
+
+Example:
+```java
+class MyThread extends Thread {
+    public void run() {
+        System.out.println("Thread is running");
+    }
+}
+MyThread thread = new MyThread();
+thread.start();
+```
+
+Alternatively, use **ExecutorService** for thread pool management.', 'active', 1, 8, 6, '2024-07-01 06:31:10');
+INSERT INTO posts (id, title, content, status, showOnHomepage, likes, creationById, creationAt) VALUES (12, 'What are CSS animations and how do I create them?', 'CSS animations add dynamic behavior to web pages. Use the `@keyframes` rule to define animations.
+
+Example:
+```css
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+.element {
+    animation: slideIn 2s ease-in-out;
+}
+```', 'active', 0, 7, 1, '2024-02-05 06:20:30');
+INSERT INTO posts (id, title, content, status, showOnHomepage, likes, creationById, creationAt) VALUES (11, 'How to stay motivated while learning to code?', 'Staying motivated involves setting achievable goals, finding supportive communities, and celebrating progress.
+> "Motivation is what gets you started. Habit is what keeps you going." — Jim Ryun
+', 'active', 1, 6, 2, '2024-09-28 07:20:55');
+INSERT INTO posts (id, title, content, status, showOnHomepage, likes, creationById, creationAt) VALUES (10, 'How can mindfulness improve daily productivity?', 'Mindfulness helps improve focus, reduce stress, and enhance productivity by training the mind to stay present. As Thich Nhat Hanh said:
+> “The present moment is the only time over which we have dominion.”
+Consider practicing short mindful breaks during work, such as 5-minute breathing exercises, to improve clarity and decision-making.', 'active', 0, 7, 8, '2024-10-30 13:51:24');
+INSERT INTO posts (id, title, content, status, showOnHomepage, likes, creationById, creationAt) VALUES (22, 'How to manage time complexity in algorithms?', 'To optimize time complexity:
+1. Understand the input size and expected growth rate.
+2. Choose appropriate data structures.
+3. Use Big-O notation to estimate performance.
+
+Example table of algorithm complexities:
+| Algorithm         | Time Complexity |
+|-------------------|-----------------|
+| Binary Search     | O(log n)        |
+| Quick Sort        | O(n log n)      |
+| Bubble Sort       | O(n^2)          |', 'active', 0, 4, 8, '2024-03-30 07:20:11');
+INSERT INTO posts (id, title, content, status, showOnHomepage, likes, creationById, creationAt) VALUES (7, 'How to handle asynchronous operations in JavaScript?', 'JavaScript handles asynchronous operations using:
+- **Callbacks**: Traditional approach but can lead to callback hell.
+- **Promises**: Manage async tasks more elegantly.
+- **Async/Await**: Simplifies asynchronous code.
+
+Example:
+```javascript
+async function fetchData() {
+    try {
+        const response = await fetch(''https://api.example.com/data'');
+        const data = await response.json();
+        console.log(data);
+    } catch (error) {
+        console.error(''Error fetching data:'', error);
+    }
+}
+fetchData();
+```
+', 'active', 1, 8, 3, '2024-09-06 20:20:07');
+INSERT INTO posts (id, title, content, status, showOnHomepage, likes, creationById, creationAt) VALUES (6, 'How can technology be used to maintain a healthy lifestyle?', 'Technology aids in health management through:
+- Fitness tracking apps like Fitbit.
+- Online yoga and meditation platforms.
+- Smart devices for monitoring vitals like heart rate.
+', 'active', 0, 8, 2, '2024-08-06 08:13:09');
+INSERT INTO posts (id, title, content, status, showOnHomepage, likes, creationById, creationAt) VALUES (4, 'What is the difference between var, let, and const in JavaScript?', '| Keyword | Scope          | Reassignment | Hoisting Behavior |
+|---------|----------------|--------------|-------------------|
+| var     | Function       | Allowed      | Hoisted with `undefined` |
+| let     | Block          | Allowed      | Hoisted but uninitialized |
+| const   | Block          | Not Allowed  | Hoisted but uninitialized |
+
+Example:
+```javascript
+let x = 10;
+const y = 20;
+// y = 30; // Error: Assignment to constant variable
+var z = 15;
+```
+', 'active', 0, 8, 5, '2024-06-01 11:12:06');
+INSERT INTO posts (id, title, content, status, showOnHomepage, likes, creationById, creationAt) VALUES (24, 'How can I optimize JavaScript code for better performance?', 'Optimization techniques:
+- Minimize DOM manipulations.
+- Use debouncing and throttling for event listeners.
+- Leverage modern JavaScript features like `for...of` loops and `Map`/`Set` objects.
+', 'active', 0, 6, 3, '2024-02-25 23:34:19');
 INSERT INTO posts (id, title, content, status, showOnHomepage, likes, creationById, creationAt) VALUES (13, 'Cohibeo alter aegrotatio vinitor.', 'Nostrum admiratio vito tamen. Via audio arma tracto vindico velum ulciscor molestias benevolentia quos. Amplexus confido strues doloribus sunt.
 Deprimo maxime undique. Odit cresco cresco. Tergum cibo subnecto ducimus credo aegrotatio.
-Celebrer amplus cinis auctus coerceo. Sperno utrimque sumptus succedo teres voluptatum sumptus. Quibusdam quos trepide cena templum carcer arbitro.', 'active', 0, 7, 6, '2024-01-11 01:27:01');
-INSERT INTO posts (id, title, content, status, showOnHomepage, likes, creationById, creationAt) VALUES (14, 'Quas compello cupiditas.', 'Adeo sumptus maxime terreo tyrannus sol. Alius civis vado suadeo caute bis aliquam creber admitto autem. Hic porro tamisium nisi comis est id venustas vita caste.
-Cui annus statim patrocinor vae adduco adsuesco tego vitae cornu. Velum animi aurum articulus adiuvo color. Sum tabula verumtamen colligo.
-Apto voluptate ancilla. Deficio adversus minus unus accusator sperno abstergo amet delectus. Alveus cognatus clam sum cavus earum tenetur.', 'inactive', 0, 7, 3, '2024-10-07 23:27:35');
-INSERT INTO posts (id, title, content, status, showOnHomepage, likes, creationById, creationAt) VALUES (15, 'Tabella vae crinis vos adsuesco crustulum spiritus concido bibo vociferor.', 'Unus aureus valeo somniculosus volo. Solitudo praesentium aut corporis. Arx angelus crapula culpo tenax decimus doloribus utpote vociferor agnitio.
-Deleo dens ter soleo thema taedium assumenda deorsum fugiat. Super tot velum comptus suadeo torqueo. Aperte tam aptus villa aequitas amo casso vulticulus communis suus.
-Excepturi concido umquam absorbeo. Arca expedita casus explicabo tui usus valde. Depereo crur tergiversatio correptius tubineus labore centum.', 'inactive', 1, 8, 1, '2024-09-06 05:04:51');
-INSERT INTO posts (id, title, content, status, showOnHomepage, likes, creationById, creationAt) VALUES (16, 'Teneo debilito cubitum suffoco stipes similique vinum totam consequuntur accendo.', 'Damno vis animi aurum dignissimos tubineus. Decipio stella calamitas admoneo arcesso curis. Tenus infit stips velum auxilium timor demum coepi.
-Comptus delibero solum explicabo angelus cogo audax. Defluo vulnero cohors arbustum urbs facere congregatio vulgo. Suscipit socius amplus totam capto cultura.
-Concido adsidue vaco celebrer adstringo verbum ultra. Sequi truculenter verbera thesaurus temptatio tero vulgo sonitus. Provident curso cito terror utroque.', 'inactive', 0, 8, 7, '2024-03-02 04:25:35');
-INSERT INTO posts (id, title, content, status, showOnHomepage, likes, creationById, creationAt) VALUES (17, 'Cilicium cetera tergiversatio patria.', 'Veritas molestiae suscipio tres volup cruentus concido tremo averto strues. Ratione victoria abutor ipsum quia abstergo. Illum derelinquo cuius deduco sto aperte aeternus stillicidium depono.
-Quia adfectus nemo expedita delicate tracto. Civis conturbo cruciamentum thesis tamquam teneo valeo tertius tabula. Tabula tenax aestas numquam antea canto amet animi corroboro dolorum.
-Volaticus timor vestrum cena ipsam volva adipisci vitium vitiosus fuga. Appositus conitor vetus. Laudantium aveho cohors averto tondeo contego nobis quos.', 'inactive', 0, 6, 2, '2024-04-25 00:43:06');
-INSERT INTO posts (id, title, content, status, showOnHomepage, likes, creationById, creationAt) VALUES (18, 'What are the advantages of learning multiple programming languages?', 'Sub terminatio commemoro collum vulpes explicabo vigilo. Barba expedita perferendis fugiat cultellus adhuc tabernus sumptus. Tolero vomito sol tenetur correptius cunctatio cernuus studio.
-Comburo cuius talis vel copia subito conatus quaerat ater. Ex antepono tricesimus vespillo solitudo creta tonsor. Vetus tego vestigium caput correptius.
-Supra colligo uxor concedo auctus timidus sortitus cogo peior eaque. Desparatus demens bene pauci. Alveus benigne inflammatio.', 'active', 1, 4, 4, '2024-08-01 06:43:39');
+Celebrer amplus cinis auctus coerceo. Sperno utrimque sumptus succedo teres voluptatum sumptus. Quibusdam quos trepide cena templum carcer arbitro.', 'inactive', 0, 7, 6, '2024-01-11 01:27:01');
+INSERT INTO posts (id, title, content, status, showOnHomepage, likes, creationById, creationAt) VALUES (23, 'What are the principles of effective UI/UX design?', 'UI/UX design is essential for product success. I want to know about principles that lead to a great user experience. Abbas tristis dolore amoveo surculus capitulus. Angulus thorax aestus odit terminatio adfectus abscido defungo crudelis recusandae. Demo arbustum vespillo constans crapula.', 'inactive', 0, 7, 7, '2024-04-20 08:28:15');
 INSERT INTO posts (id, title, content, status, showOnHomepage, likes, creationById, creationAt) VALUES (19, 'Minima administratio debeo xiphias vivo cohors sto cumque rem.', 'Deporto delicate possimus facilis tempus velociter tantum vergo cilicium alii. Tergiversatio deorsum utilis constans curso vox soluta vilis. Stips congregatio tollo condico cavus una facere demum addo aduro.
 Auctor ademptio sodalitas summa creber aranea aetas peior patruus adipisci. Videlicet dolorum verbum aliquam impedit articulus. Capillus audio dedecor appono stabilis.
 Ter vulgivagus vita accusantium. Contra sto candidus textus audax validus tolero. Dolor temporibus comitatus sophismata suffragium attonbitus ipsa.', 'inactive', 0, 2, 3, '2024-06-05 15:42:36');
-INSERT INTO posts (id, title, content, status, showOnHomepage, likes, creationById, creationAt) VALUES (20, 'What are the best practices for managing memory in Java?', 'Memory management is a crucial aspect of Java. I want to learn about garbage collection, object lifecycle, and efficient memory use.', 'active', 0, 4, 3, '2024-11-05 23:23:38');
-INSERT INTO posts (id, title, content, status, showOnHomepage, likes, creationById, creationAt) VALUES (21, 'How can tech professionals maintain work-life balance?', 'Tech jobs can be demanding, so balancing work and life is essential. I want strategies for achieving it.
-
-Tabella strues alii. Victus torrens exercitationem derelinquo urbs una corrumpo solitudo. Cimentarius speculum pariatur sulum curto clibanus communis. Theologus quae tutamen nemo vomer ademptio pariatur surculus tempore solum. Consectetur patruus vapulus tui ipsum corrumpo. Tenetur curto adeo despecto adsidue debitis.', 'active', 1, 4, 8, '2024-08-19 14:38:20');
-INSERT INTO posts (id, title, content, status, showOnHomepage, likes, creationById, creationAt) VALUES (22, 'How to manage time complexity in algorithms?', 'Textus aequus thymum deripio vitae aestivus sufficio desolo vesper tabesco. Ullus et candidus deprecator demoror tres arceo tristis dolorem. Coniecto alienus censura socius centum tollo.
-Agnitio acies unde voro adficio accendo sollicito defessus creber. Thalassinus conatus attero amiculum. Quasi appositus porro voluptate contego terga attero tertius.
-Decumbo aeternus calcar asperiores tubineus creo demoror ad. Constans vere sapiente curso compello accusantium incidunt soluta tenus. Utrum aperiam solus dens.', 'active', 0, 4, 8, '2024-03-30 07:20:11');
-INSERT INTO posts (id, title, content, status, showOnHomepage, likes, creationById, creationAt) VALUES (23, 'What are the principles of effective UI/UX design?', 'UI/UX design is essential for product success. I want to know about principles that lead to a great user experience. Abbas tristis dolore amoveo surculus capitulus. Angulus thorax aestus odit terminatio adfectus abscido defungo crudelis recusandae. Demo arbustum vespillo constans crapula.', 'active', 0, 7, 7, '2024-04-20 08:28:15');
-INSERT INTO posts (id, title, content, status, showOnHomepage, likes, creationById, creationAt) VALUES (24, 'How can I optimize JavaScript code for better performance?', 'JavaScript performance is crucial for a smooth user experience. I am looking for best practices to reduce load time and make code more efficient.', 'active', 0, 6, 3, '2024-02-25 23:34:19');
 INSERT INTO posts (id, title, content, status, showOnHomepage, likes, creationById, creationAt) VALUES (25, 'Adsum amissio ipsum suffragium apostolus crepusculum aperte saepe adsum.', 'Varius votum terebro nostrum canto titulus. Uredo rem argumentum adimpleo demonstro accusator. Tutis derideo unus tribuo verus sumptus accusantium.
 Creber sponte advenio totidem creo circumvenio territo antiquus tenus clementia. Cunabula vociferor substantia solitudo socius argentum depopulo confido vorax beatus. Repellat adaugeo aqua cultura velit fugit.
 Corrumpo decor acidus. Sumptus crur articulus curis tunc. Suadeo ultra argentum coniecto tempus.', 'inactive', 1, 3, 1, '2024-04-06 06:33:54');
+INSERT INTO posts (id, title, content, status, showOnHomepage, likes, creationById, creationAt) VALUES (17, 'Cilicium cetera tergiversatio patria.', 'Veritas molestiae suscipio tres volup cruentus concido tremo averto strues. Ratione victoria abutor ipsum quia abstergo. Illum derelinquo cuius deduco sto aperte aeternus stillicidium depono.
+Quia adfectus nemo expedita delicate tracto. Civis conturbo cruciamentum thesis tamquam teneo valeo tertius tabula. Tabula tenax aestas numquam antea canto amet animi corroboro dolorum.
+Volaticus timor vestrum cena ipsam volva adipisci vitium vitiosus fuga. Appositus conitor vetus. Laudantium aveho cohors averto tondeo contego nobis quos.', 'inactive', 0, 6, 2, '2024-04-25 00:43:06');
+INSERT INTO posts (id, title, content, status, showOnHomepage, likes, creationById, creationAt) VALUES (16, 'Teneo debilito cubitum suffoco stipes similique vinum totam consequuntur accendo.', 'Damno vis animi aurum dignissimos tubineus. Decipio stella calamitas admoneo arcesso curis. Tenus infit stips velum auxilium timor demum coepi.
+Comptus delibero solum explicabo angelus cogo audax. Defluo vulnero cohors arbustum urbs facere congregatio vulgo. Suscipit socius amplus totam capto cultura.
+Concido adsidue vaco celebrer adstringo verbum ultra. Sequi truculenter verbera thesaurus temptatio tero vulgo sonitus. Provident curso cito terror utroque.', 'inactive', 0, 8, 7, '2024-03-02 04:25:35');
+INSERT INTO posts (id, title, content, status, showOnHomepage, likes, creationById, creationAt) VALUES (15, 'Tabella vae crinis vos adsuesco crustulum spiritus concido bibo vociferor.', 'Unus aureus valeo somniculosus volo. Solitudo praesentium aut corporis. Arx angelus crapula culpo tenax decimus doloribus utpote vociferor agnitio.
+Deleo dens ter soleo thema taedium assumenda deorsum fugiat. Super tot velum comptus suadeo torqueo. Aperte tam aptus villa aequitas amo casso vulticulus communis suus.
+Excepturi concido umquam absorbeo. Arca expedita casus explicabo tui usus valde. Depereo crur tergiversatio correptius tubineus labore centum.', 'inactive', 1, 8, 1, '2024-09-06 05:04:51');
+INSERT INTO posts (id, title, content, status, showOnHomepage, likes, creationById, creationAt) VALUES (14, 'Quas compello cupiditas.', 'Adeo sumptus maxime terreo tyrannus sol. Alius civis vado suadeo caute bis aliquam creber admitto autem. Hic porro tamisium nisi comis est id venustas vita caste.
+Cui annus statim patrocinor vae adduco adsuesco tego vitae cornu. Velum animi aurum articulus adiuvo color. Sum tabula verumtamen colligo.
+Apto voluptate ancilla. Deficio adversus minus unus accusator sperno abstergo amet delectus. Alveus cognatus clam sum cavus earum tenetur.', 'inactive', 0, 7, 3, '2024-10-07 23:27:35');
+INSERT INTO posts (id, title, content, status, showOnHomepage, likes, creationById, creationAt) VALUES (8, 'Aut apto vinco vito defero ocer.', 'Nobis solvo vestrum. Suus corroboro comes numquam ustulo agnitio verumtamen. Odio tametsi cubicularis venio alter.
+Corrigo suscipit pecus aestivus absum allatus. Appello aspernatur vulgivagus decens abutor ambulo. Deleo admoneo avaritia sumo aufero adimpleo terreo canis argumentum.
+Dolorum catena vita. Cornu consuasor demergo. Bestia supra desolo curo debitis viriliter commodi benevolentia.', 'inactive', 0, 7, 2, '2024-04-07 23:16:30');
+INSERT INTO posts (id, title, content, status, showOnHomepage, likes, creationById, creationAt) VALUES (5, 'Solum utrimque tumultus cavus atqui pecus cribro.', 'Saepe ventus victoria cumque ait vix. Dens victus causa copia turba corroboro cognomen clamo acer voluptates. Texo cogito coniuratio.
+Canonicus centum quos bellum amor virga. Textilis tantillus votum caute deprimo uterque aiunt suppellex adulescens adsuesco. Ipsum deputo solium in despecto tergeo thema rerum.
+Caput terebro tamisium audio ter calco templum quibusdam. Demulceo verumtamen avarus laboriosam ulciscor certe adulatio cruciamentum. Excepturi arguo stabilis vinum aestas acerbitas conforto admoveo creator.', 'inactive', 0, 8, 6, '2024-02-20 09:44:25');
+INSERT INTO posts (id, title, content, status, showOnHomepage, likes, creationById, creationAt) VALUES (3, 'Adstringo campana nostrum.', 'Clementia uberrime textilis. Aptus desipio facere tonsor combibo ventosus ars aureus altus communis. Quos valetudo dolorum.
+Trucido aeternus unus quos coaegresco territo saepe vestigium. Arma trado summisse adipisci bestia velum assentator possimus tergo cuppedia. Vulnus vomica animi tumultus.
+Vereor defero atrocitas vae adulatio denique cernuus vulgo quasi. Terror vorago super. Admitto traho speculum tutis collum tergeo constans amissio.', 'inactive', 0, 8, 7, '2024-09-23 22:18:22');
+INSERT INTO posts (id, title, content, status, showOnHomepage, likes, creationById, creationAt) VALUES (2, 'Itaque harum adipiscor appello sopor.', 'Vallum asper ara decet paens demo valens cedo curso. Tot architecto pax fugit armarium nobis tunc censura colo argumentum. Et vulticulus decerno.
+Uxor victoria casus. Sub tabella error demoror currus veritatis cattus tempora uredo ducimus. Dedecor suppellex vita corrumpo cura.
+Succedo tonsor ultio vulgivagus vulticulus. Quam cursim speculum cervus. Theca thesaurus blanditiis admoneo conspergo creator dolore.', 'inactive', 0, 8, 1, '2024-03-22 11:11:54');
+
 
 
 /* Categories */
@@ -85,13 +192,10 @@ INSERT INTO categories (id, title, description, creationAt) VALUES (8, '🏔️ 
 
 /* Post Categories */
 INSERT INTO posts_categories (id, postId, categoryId, creationAt) VALUES (3, 14, 2, '2024-04-09 01:31:20');
-INSERT INTO posts_categories (id, postId, categoryId, creationAt) VALUES (4, 1, 5, '2024-10-27 03:52:10');
 INSERT INTO posts_categories (id, postId, categoryId, creationAt) VALUES (5, 5, 6, '2024-04-05 09:24:42');
 INSERT INTO posts_categories (id, postId, categoryId, creationAt) VALUES (6, 13, 4, '2024-03-15 06:24:53');
-INSERT INTO posts_categories (id, postId, categoryId, creationAt) VALUES (7, 18, 8, '2024-04-19 04:26:08');
 INSERT INTO posts_categories (id, postId, categoryId, creationAt) VALUES (8, 25, 4, '2024-09-01 00:03:36');
 INSERT INTO posts_categories (id, postId, categoryId, creationAt) VALUES (9, 9, 5, '2024-05-21 13:38:59');
-INSERT INTO posts_categories (id, postId, categoryId, creationAt) VALUES (10, 1, 1, '2024-02-26 22:17:33');
 INSERT INTO posts_categories (id, postId, categoryId, creationAt) VALUES (11, 13, 1, '2024-08-03 01:38:37');
 INSERT INTO posts_categories (id, postId, categoryId, creationAt) VALUES (12, 15, 1, '2024-10-15 11:06:26');
 INSERT INTO posts_categories (id, postId, categoryId, creationAt) VALUES (15, 5, 7, '2024-07-08 20:37:08');
@@ -100,7 +204,6 @@ INSERT INTO posts_categories (id, postId, categoryId, creationAt) VALUES (18, 2,
 INSERT INTO posts_categories (id, postId, categoryId, creationAt) VALUES (19, 3, 2, '2024-10-01 16:41:28');
 INSERT INTO posts_categories (id, postId, categoryId, creationAt) VALUES (21, 16, 4, '2024-02-20 23:55:36');
 INSERT INTO posts_categories (id, postId, categoryId, creationAt) VALUES (23, 2, 4, '2024-10-02 12:59:02');
-INSERT INTO posts_categories (id, postId, categoryId, creationAt) VALUES (24, 10, 1, '2024-06-13 20:19:51');
 INSERT INTO posts_categories (id, postId, categoryId, creationAt) VALUES (25, 19, 5, '2024-10-21 09:10:04');
 INSERT INTO posts_categories (id, postId, categoryId, creationAt) VALUES (27, 16, 1, '2024-03-31 01:08:21');
 INSERT INTO posts_categories (id, postId, categoryId, creationAt) VALUES (30, 2, 8, '2024-02-06 17:49:03');
@@ -115,18 +218,13 @@ INSERT INTO posts_categories (id, postId, categoryId, creationAt) VALUES (47, 17
 INSERT INTO posts_categories (id, postId, categoryId, creationAt) VALUES (48, 2, 6, '2024-06-11 20:09:29');
 INSERT INTO posts_categories (id, postId, categoryId, creationAt) VALUES (49, 19, 6, '2024-09-16 02:50:49');
 INSERT INTO posts_categories (id, postId, categoryId, creationAt) VALUES (50, 6, 7, '2024-04-07 04:30:19');
-INSERT INTO posts_categories (id, postId, categoryId, creationAt) VALUES (52, 10, 3, '2024-01-30 01:46:26');
 INSERT INTO posts_categories (id, postId, categoryId, creationAt) VALUES (55, 3, 8, '2024-02-14 00:52:58');
-INSERT INTO posts_categories (id, postId, categoryId, creationAt) VALUES (56, 6, 3, '2024-07-17 18:27:21');
 INSERT INTO posts_categories (id, postId, categoryId, creationAt) VALUES (57, 22, 2, '2024-10-29 04:47:07');
 INSERT INTO posts_categories (id, postId, categoryId, creationAt) VALUES (59, 8, 5, '2024-01-28 23:12:56');
 INSERT INTO posts_categories (id, postId, categoryId, creationAt) VALUES (64, 23, 5, '2024-02-02 03:30:16');
 INSERT INTO posts_categories (id, postId, categoryId, creationAt) VALUES (67, 5, 8, '2024-06-27 09:25:27');
-INSERT INTO posts_categories (id, postId, categoryId, creationAt) VALUES (69, 9, 7, '2024-07-05 06:39:35');
-INSERT INTO posts_categories (id, postId, categoryId, creationAt) VALUES (70, 18, 4, '2024-01-16 12:48:57');
 INSERT INTO posts_categories (id, postId, categoryId, creationAt) VALUES (72, 6, 2, '2024-08-24 13:28:05');
 INSERT INTO posts_categories (id, postId, categoryId, creationAt) VALUES (74, 8, 3, '2024-03-03 20:29:42');
-INSERT INTO posts_categories (id, postId, categoryId, creationAt) VALUES (75, 18, 3, '2024-06-09 01:17:17');
 INSERT INTO posts_categories (id, postId, categoryId, creationAt) VALUES (76, 24, 1, '2024-11-16 13:44:35');
 INSERT INTO posts_categories (id, postId, categoryId, creationAt) VALUES (77, 24, 7, '2024-11-16 13:44:35');
 INSERT INTO posts_categories (id, postId, categoryId, creationAt) VALUES (78, 20, 3, '2024-11-16 13:45:13');
@@ -141,6 +239,7 @@ INSERT INTO posts_categories (id, postId, categoryId, creationAt) VALUES (86, 11
 INSERT INTO posts_categories (id, postId, categoryId, creationAt) VALUES (87, 11, 2, '2024-11-16 13:59:57');
 INSERT INTO posts_categories (id, postId, categoryId, creationAt) VALUES (88, 4, 1, '2024-11-16 14:02:38');
 INSERT INTO posts_categories (id, postId, categoryId, creationAt) VALUES (89, 7, 1, '2024-11-16 14:04:44');
+INSERT INTO posts_categories (id, postId, categoryId, creationAt) VALUES (90, 18, 2, '2024-11-24 18:03:48');
 
 /* Post Favorites */
 INSERT INTO posts_favorites (id, creationById, postId, creationAt) VALUES (1, 7, 8, '2024-01-04 09:12:47');
@@ -186,15 +285,15 @@ INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, s
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (3, null, 17, 6, 'Corrupti depono conscendo damno desidero aspicio demum viscus depulso.', 0, 'active', '2024-10-28 06:12:25');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (4, null, 17, 2, 'Abstergo agnosco odit canto sumptus arx adulescens.', 0, 'active', '2024-05-11 03:36:25');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (5, null, 13, 3, 'Cruentus patior canonicus aro quaerat coruscus.', 0, 'active', '2024-10-09 16:30:20');
-INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (6, null, 13, 8, 'Antea tepidus super valens hic.', 0, 'inactive', '2024-09-10 22:47:01');
+INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (6, null, 13, 8, 'Antea tepidus super valens hic.', 0, 'active', '2024-09-10 22:47:01');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (7, null, 3, 5, 'Tabella subnecto adicio vigilo amicitia surculus.', 0, 'active', '2024-02-21 16:58:11');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (8, null, 21, 2, 'Tum armarium quo coniecto corona cur dedico iure amo vulticulus.', 0, 'inactive', '2024-06-19 21:49:42');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (9, null, 21, 1, 'Coadunatio esse vero abduco accommodo cado.', 0, 'inactive', '2024-06-27 09:14:32');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (10, null, 15, 5, 'Spoliatio expedita arguo.', 0, 'inactive', '2024-01-11 05:53:13');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (11, null, 17, 5, 'Claro admoveo statua tracto tendo culpa benevolentia.', 0, 'active', '2024-07-17 20:10:20');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (12, null, 21, 6, 'Amiculum pax cum architecto adhaero atqui crinis.', 0, 'active', '2024-08-05 22:33:41');
-INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (13, null, 11, 1, 'Cotidie degenero ad aegrotatio dens.', 0, 'inactive', '2024-05-31 03:12:29');
-INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (14, null, 23, 4, 'Attollo advenio curriculum.', 0, 'inactive', '2024-03-20 15:53:54');
+INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (13, null, 11, 1, 'Cotidie degenero ad aegrotatio dens.', 0, 'active', '2024-05-31 03:12:29');
+INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (14, null, 23, 4, 'Attollo advenio curriculum.', 0, 'active', '2024-03-20 15:53:54');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (15, null, 14, 1, 'Ulciscor aptus uxor cohibeo amplus amissio coruscus acer.', 0, 'active', '2024-05-30 07:57:19');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (16, null, 4, 3, 'Comes auctor temporibus tempus patria unde.', 1, 'active', '2024-04-02 12:05:31');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (17, null, 1, 6, 'Amet convoco textor aro excepturi.', 0, 'active', '2024-06-14 15:18:20');
@@ -205,19 +304,19 @@ INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, s
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (22, null, 21, 5, 'Stella tempora sustineo confugo patrocinor vinum voveo usitas cupiditas coerceo.', 0, 'inactive', '2024-01-23 17:24:13');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (23, null, 22, 1, 'Acer cimentarius alter at.', 1, 'active', '2024-07-18 09:01:01');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (24, null, 17, 8, 'Virtus magnam clibanus veritas.', 0, 'active', '2024-10-31 05:44:25');
-INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (25, null, 13, 2, 'Utrum veniam tener sto taedium deorsum quibusdam valens.', 0, 'inactive', '2024-08-20 22:15:15');
+INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (25, null, 13, 2, 'Utrum veniam tener sto taedium deorsum quibusdam valens.', 0, 'active', '2024-08-20 22:15:15');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (26, null, 20, 8, 'Corrumpo sto abduco crux appello similique.', 0, 'inactive', '2024-08-14 21:35:00');
-INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (27, null, 22, 5, 'Voco tabella caute.', 0, 'inactive', '2024-06-17 03:48:36');
+INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (27, null, 22, 5, 'Voco tabella caute.', 0, 'active', '2024-06-17 03:48:36');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (28, null, 20, 7, 'Celer sol cohaero inventore tabernus capillus thorax sursum aperte.', 0, 'inactive', '2024-09-11 22:38:43');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (29, null, 21, 2, 'Desino laudantium ventosus.', 1, 'active', '2024-01-16 07:53:03');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (30, null, 5, 4, 'Subiungo ambulo verumtamen ullus delectus.', 0, 'inactive', '2024-11-12 16:35:34');
-INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (31, null, 21, 1, 'Exercitationem tergiversatio theologus aperte eligendi vergo abstergo cur delicate.', 0, 'inactive', '2024-10-29 05:57:49');
-INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (32, null, 20, 2, 'Uberrime velit curtus demulceo amoveo depromo eveniet spiritus.', 1, 'inactive', '2024-07-05 21:55:13');
+INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (31, null, 21, 1, 'Exercitationem tergiversatio theologus aperte eligendi vergo abstergo cur delicate.', 0, 'active', '2024-10-29 05:57:49');
+INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (32, null, 20, 2, 'Uberrime velit curtus demulceo amoveo depromo eveniet spiritus.', 1, 'active', '2024-07-05 21:55:13');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (33, null, 11, 6, 'A utrum cunctatio vespillo trans vinum.', 1, 'active', '2024-06-24 09:15:51');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (34, null, 21, 6, 'Apostolus ventito adduco tabernus cruentus cibus modi.', 0, 'inactive', '2024-08-03 14:51:11');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (35, null, 1, 5, 'Tollo adiuvo adhuc.', 0, 'active', '2024-09-23 09:24:11');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (36, null, 10, 8, 'Thymum vester laboriosam damnatio vinco tepesco.', 0, 'active', '2024-08-11 21:42:03');
-INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (37, null, 8, 7, 'Vero uter minus appositus speculum pecus acidus sperno in.', 0, 'inactive', '2024-03-02 21:58:46');
+INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (37, null, 8, 7, 'Vero uter minus appositus speculum pecus acidus sperno in.', 0, 'active', '2024-03-02 21:58:46');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (38, null, 4, 8, 'Ustulo alii maiores pecto bene contra speculum caelum.', 1, 'active', '2024-02-18 07:42:42');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (39, null, 21, 3, 'Amplus tactus sum demum thesis assumenda dolorem.', 0, 'inactive', '2024-05-07 19:50:46');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (40, null, 2, 5, 'Dolores cognomen cauda suasoria ater ater sui demergo.', 0, 'active', '2024-04-29 00:39:35');
@@ -230,14 +329,14 @@ INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, s
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (47, null, 15, 7, 'Atavus deduco earum expedita cariosus commemoro vomer uxor.', 0, 'active', '2024-05-23 18:03:13');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (48, null, 6, 5, 'Aliqua sed dolore sub temptatio clarus stips stipes viscus tempus.', 0, 'active', '2024-08-08 05:50:30');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (49, null, 7, 6, 'Vociferor pax advoco sodalitas mollitia vir.', 0, 'active', '2024-09-26 15:03:13');
-INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (50, null, 10, 3, 'Vos theatrum carus alienus adflicto viriliter.', 0, 'inactive', '2024-01-17 07:34:57');
-INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (51, 49, 8, 1, 'Cogo avaritia arbustum arma termes.', 0, 'inactive', '2024-08-21 23:21:06');
+INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (50, null, 10, 3, 'Vos theatrum carus alienus adflicto viriliter.', 0, 'active', '2024-01-17 07:34:57');
+INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (51, 49, 8, 1, 'Cogo avaritia arbustum arma termes.', 0, 'active', '2024-08-21 23:21:06');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (52, 16, 5, 4, 'Debeo nostrum pectus arcus sto carcer suggero animus torrens ipsa.', 0, 'inactive', '2024-04-05 20:35:32');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (53, 36, 12, 3, 'Depereo trucido placeat acies statua pauci viduo cibo valens.', 0, 'inactive', '2024-01-01 18:45:25');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (55, 46, 24, 5, 'Subseco tactus venustas comedo.', 0, 'active', '2024-01-21 04:25:08');
-INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (56, 24, 11, 2, 'Velum cubitum vilitas sui avarus caterva.', 0, 'inactive', '2024-10-25 20:59:50');
+INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (56, 24, 11, 2, 'Velum cubitum vilitas sui avarus caterva.', 0, 'active', '2024-10-25 20:59:50');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (57, 5, 8, 5, 'Curo thorax nihil tolero vulgus sum vinitor territo terga.', 0, 'active', '2024-10-26 05:24:38');
-INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (58, 41, 15, 3, 'Vigor ea tactus suspendo deleniti speciosus thorax trepide.', 0, 'inactive', '2024-09-04 16:37:09');
+INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (58, 41, 15, 3, 'Vigor ea tactus suspendo deleniti speciosus thorax trepide.', 0, 'active', '2024-09-04 16:37:09');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (59, 38, 2, 5, 'Peior absens ter temperantia coniuratio cohaero assentator videlicet optio.', 0, 'active', '2024-01-04 22:13:13');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (60, 35, 24, 6, 'Ventito amissio ea video custodia tamisium amor desparatus vix aspernatur.', 0, 'inactive', '2024-07-27 16:55:38');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (61, 40, 12, 5, 'Aranea arto aut rerum creber varius quidem substantia.', 0, 'inactive', '2024-10-06 14:13:48');
@@ -245,7 +344,7 @@ INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, s
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (63, 22, 10, 7, 'Asporto eius velit uterque pauper ceno ater turbo talio clibanus.', 0, 'active', '2024-02-21 16:17:40');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (64, 12, 12, 2, 'Acidus vorax ad appositus ubi capto eveniet provident tabesco dolorum.', 0, 'inactive', '2024-10-31 09:25:44');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (65, 50, 2, 3, 'Cunae aspernatur degusto currus.', 0, 'active', '2024-07-06 14:23:12');
-INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (66, 47, 9, 7, 'Accusamus vulariter crudelis neque esse commodi.', 0, 'inactive', '2024-09-29 23:26:46');
+INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (66, 47, 9, 7, 'Accusamus vulariter crudelis neque esse commodi.', 0, 'active', '2024-09-29 23:26:46');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (67, 50, 24, 5, 'Sunt vivo cogito cribro vespillo voveo defleo aut sto cogito.', 0, 'active', '2024-07-24 06:34:28');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (68, 48, 1, 1, 'Adopto quaerat curto amplitudo.', 0, 'inactive', '2024-03-25 17:41:02');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (69, 8, 3, 4, 'Voveo adulatio delego.', 0, 'inactive', '2024-01-17 11:33:01');
@@ -255,18 +354,18 @@ INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, s
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (73, 44, 11, 8, 'Enim talis cotidie alias thema clementia abundans sonitus.', 0, 'active', '2024-10-30 06:04:50');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (74, 19, 14, 6, 'Uxor turba admoneo cerno ipsa.', 0, 'active', '2024-10-14 16:00:06');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (75, 46, 23, 1, 'Animus ager patior candidus crapula.', 0, 'active', '2024-08-10 17:19:31');
-INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (76, 29, 12, 2, 'Cilicium vestrum tenax ratione.', 0, 'inactive', '2024-01-05 21:37:11');
+INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (76, 29, 12, 2, 'Cilicium vestrum tenax ratione.', 0, 'active', '2024-01-05 21:37:11');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (77, 37, 24, 1, 'Esse colligo communis debitis decretum.', 0, 'active', '2024-05-21 03:09:35');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (78, 42, 23, 4, 'Annus itaque cunabula uredo veritatis.', 0, 'active', '2024-07-04 14:00:48');
-INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (79, 46, 6, 5, 'Demonstro tristis comptus succedo adimpleo astrum conor.', 0, 'inactive', '2024-01-17 01:56:55');
-INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (80, 47, 11, 6, 'Explicabo teres aliquam bene crudelis aegre.', 0, 'inactive', '2024-02-16 16:21:02');
+INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (79, 46, 6, 5, 'Demonstro tristis comptus succedo adimpleo astrum conor.', 0, 'active', '2024-01-17 01:56:55');
+INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (80, 47, 11, 6, 'Explicabo teres aliquam bene crudelis aegre.', 0, 'active', '2024-02-16 16:21:02');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (81, 17, 8, 7, 'Conqueror surgo cruentus versus assentator.', 0, 'active', '2024-06-28 09:31:19');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (82, 19, 16, 6, 'Amet caecus adsum arma synagoga argentum casus degusto dolore.', 0, 'active', '2024-06-25 18:28:02');
-INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (83, 49, 15, 8, 'Volva tabgo armarium candidus cohibeo casso aeger textus complectus suus.', 0, 'inactive', '2024-02-02 03:14:40');
+INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (83, 49, 15, 8, 'Volva tabgo armarium candidus cohibeo casso aeger textus complectus suus.', 0, 'active', '2024-02-02 03:14:40');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (84, 49, 8, 8, 'Vix cerno corroboro capto somnus venio condico debeo.', 0, 'active', '2024-07-29 00:05:23');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (85, 50, 14, 4, 'Temperantia facilis tabella coaegresco degero blandior solium ubi attero mollitia.', 0, 'active', '2024-01-14 05:44:33');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (86, 25, 19, 3, 'Cimentarius tollo cultellus pax verecundia caterva decor.', 0, 'active', '2024-08-10 09:13:35');
-INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (87, 37, 12, 6, 'Cur campana spectaculum vulgo ventus damno damno comedo tot.', 0, 'inactive', '2024-07-16 22:30:27');
+INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (87, 37, 12, 6, 'Cur campana spectaculum vulgo ventus damno damno comedo tot.', 0, 'active', '2024-07-16 22:30:27');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (88, 35, 4, 7, 'Cursus abscido recusandae vulticulus inflammatio vinculum possimus cupressus curiositas.', 0, 'inactive', '2024-05-19 16:36:56');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (89, 39, 12, 3, 'Degenero deleniti saepe curriculum cubitum.', 0, 'active', '2024-09-24 14:12:09');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (90, 16, 19, 3, 'Similique blandior colo cunae aduro adicio conculco.', 0, 'inactive', '2024-07-30 15:16:17');
@@ -274,8 +373,8 @@ INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, s
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (92, 38, 24, 8, 'Ullam appositus impedit tredecim illo repellat decumbo doloribus crustulum.', 0, 'inactive', '2024-08-25 23:38:49');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (93, 36, 14, 7, 'Crudelis adsum beneficium ait ulterius dapifer debitis excepturi.', 0, 'active', '2024-10-29 01:12:50');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (94, 46, 2, 4, 'Audeo autem nemo labore aliqua canto reiciendis arguo.', 0, 'inactive', '2024-07-22 14:15:37');
-INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (95, 41, 22, 3, 'Conduco artificiose urbanus beatae sed apparatus.', 0, 'inactive', '2024-07-17 15:59:34');
-INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (96, 40, 8, 1, 'Vere caelum abstergo ratione sustineo audeo asperiores complectus.', 0, 'inactive', '2024-09-23 03:08:39');
+INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (95, 41, 22, 3, 'Conduco artificiose urbanus beatae sed apparatus.', 0, 'active', '2024-07-17 15:59:34');
+INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (96, 40, 8, 1, 'Vere caelum abstergo ratione sustineo audeo asperiores complectus.', 0, 'active', '2024-09-23 03:08:39');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (97, 36, 24, 3, 'Adicio supra aro tripudio statim vos.', 0, 'active', '2024-05-31 08:57:47');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (98, 42, 17, 6, 'Depono amiculum auctus turpis.', 0, 'inactive', '2024-09-28 22:59:13');
 INSERT INTO comments (id, commentId, postId, creationById, content, isHelpful, status, creationAt) VALUES (99, 6, 18, 1, 'Valens ventus coadunatio temeritas arto.', 0, 'active', '2024-06-25 07:47:54');
