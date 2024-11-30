@@ -67,7 +67,7 @@ class PostController extends Controller {
      */
     _prepareFilters(req) {
         const filter = [];
-        const allowedFilter = ['id', 'status', 'showOnHomepage', 'categories', 'creationAtStart', 'creationAtEnd', 'creationById'];
+        const allowedFilter = ['id', 'status', 'showOnHomepage', 'categories', 'creationAtStart', 'creationAtEnd', 'creationById', 'title'];
         Object.keys(req.query).forEach(fieldName => {
             if (allowedFilter.includes(fieldName) && !filter.hasOwnProperty(fieldName)) {
                 let field, operator;
@@ -89,6 +89,10 @@ class PostController extends Controller {
                     case 'creationAtEnd':
                         operator = '<=';
                         field = 'creationAt';
+                        break;
+                    case 'title':
+                        operator = 'LIKE';
+                        value = `%${value.trim()}%`;
                         break;
                     default:
                         operator = '=';
