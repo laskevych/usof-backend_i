@@ -76,6 +76,15 @@ This project follows Challenge-Based Learning (CBL) principles. Each phase of th
 
 ## Fake Data
 All users with role `user` has password: `$User2024`. It's fake data for presentations.
+### User logins for presentations
+* ashtyn72
+* manuela.corkery
+* yazmin.deckow17
+* griffin_murazik4
+* brenden41
+* lyda.gerhold
+* harmony15
+* lea.goyette
 
 ### Admin for presentations
    ```text
